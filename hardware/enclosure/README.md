@@ -1,6 +1,6 @@
 # R16 装配修订 A1 · 整机打印包
 
-[下载十件 STL 压缩包](https://github.com/yuhuang007/LuluClock_V2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip) · [逐件 STL](stl/) · [外壳 Blender](LuluClock-R16-A1.blend)
+[下载十件 STL 压缩包](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip) · [逐件 STL](stl/) · [外壳 Blender](LuluClock-R16-A1.blend)
 
 采用项目 **R16 装配修订 A1**：A1 主壳加 R16 前面板，适配原方案的 0.96 英寸 OLED。Blender 文件保留该版六个外壳网格，平铺便于编辑；原参考和演示占位模型没有放入公开文件。机械臂直接从下面的 STL 打印。
 

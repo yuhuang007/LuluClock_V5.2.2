@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1140" height="846" viewBox="0 0 1140 846" role="img" aria-labelledby="title description">
-  <title id="title">LuluClock V2 · ESP32-S3 接线总览</title>
+  <title id="title">LuluClock 5.2.2 · ESP32-S3 接线总览</title>
   <desc id="description">5.2.2 与 ESP32-S3 N16R8 的接线说明：左舵机 GPIO5、右舵机 GPIO4、舵机单独 5 V，所有信号共地，光源使用独立驱动。</desc>
   <defs>
     <style>
@@ -14,7 +14,7 @@
     </style>
   </defs>
   <rect width="1140" height="846" rx="20" fill="#f3f1e9"/>
-  <text x="45" y="65" class="head">LuluClock V2 · 接线总览</text>
+  <text x="45" y="65" class="head">LuluClock · 接线总览</text>
   <text x="46" y="99" class="sub">ESP32-S3 N16R8 / 固件 5.2.2 / 左右按面对绘制面认定 / 以开发板 GPIO 丝印为准</text>
 
   <rect x="42" y="136" width="516" height="399" rx="14" fill="#fffdf5"/>

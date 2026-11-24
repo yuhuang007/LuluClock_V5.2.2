@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297" role="img" aria-labelledby="title description">
-  <title id="title">LuluClock V2 · 1:1 台架定位模板</title>
+  <title id="title">LuluClock 5.2.2 · 1:1 台架定位模板</title>
   <desc id="description">A4 一比一舵机轴及板面定位；四根连杆的孔中心距。包含 50 mm 标尺与 10 mm 方形。</desc>
   <defs>
     <g id="mark" fill="#fff" stroke-width=".32">
@@ -19,7 +19,7 @@
     </style>
   </defs>
   <rect width="210" height="297" fill="#fff"/>
-  <text x="12" y="17" class="title">LuluClock V2 · 台架定位模板</text>
+  <text x="12" y="17" class="title">LuluClock · 台架定位模板</text>
   <text x="12" y="25">A4 / 100% 实际大小 / 单位 mm　　打印后先量底部的 50 mm 标尺</text>
 
   <text x="12" y="36" class="section">01　底板 · 正面看</text>

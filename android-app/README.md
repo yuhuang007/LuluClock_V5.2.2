@@ -4,7 +4,7 @@
 
 ## 连接与首次绘制
 
-1. 安装 [Release 中的 APK](https://github.com/yuhuang007/LuluClock_V2/releases/tag/v5.2.2)。给设备上电，打开系统蓝牙；首次启动按系统提示允许扫描与连接。
+1. 安装 [Release 中的 APK](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/tag/v5.2.2)。给设备上电，打开系统蓝牙；首次启动按系统提示允许扫描与连接。
 2. 在设备页连接噜噜绘时钟。检查显示的设备固件号，先同步时间，再执行绘时。
 3. 在创作页输入「你好世界」或手绘图案，预览位置及大小后发送。进度以设备和 OLED 的回传为准。
 

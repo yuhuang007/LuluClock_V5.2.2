@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#18342f">
-  <meta name="description" content="从备料、3D 打印外壳和机械臂，到第一次用紫外灯头画出 10 mm 方框。噜噜绘时钟 V2 复刻教程。">
-  <title>噜噜绘时钟 V2 · 复刻教程</title>
+  <meta name="description" content="从备料、3D 打印外壳和机械臂，到第一次用紫外灯头画出 10 mm 方框。噜噜绘时钟 5.2.2 复刻教程。">
+  <title>噜噜绘时钟 5.2.2 · 复刻教程</title>
   <link rel="stylesheet" href="guide.css">
   <script src="guide.js" defer></script>
 </head>
@@ -18,11 +18,11 @@
           <circle cx="12" cy="12" r="9"></circle>
           <path d="M12 7v5l3 2"></path>
         </svg>
-        <span>LuluClock V2</span>
+        <span>LuluClock</span>
       </a>
       <div class="top-links">
-        <a class="top-link source" href="https://github.com/yuhuang007/LuluClock_V2">源码</a>
-        <a class="top-link" href="https://github.com/yuhuang007/LuluClock_V2/releases/tag/v5.2.2">
+        <a class="top-link source" href="https://github.com/yuhuang007/LuluClock_V5.2.2" data-local="../README.md">源码</a>
+        <a class="top-link" href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/tag/v5.2.2">
           下载
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5"></path>
@@ -36,7 +36,7 @@
     <img class="hero-image" src="assets/cover.jpg" width="1280" height="720" alt="原型正面的光绘板、双舵机连杆、侧屏和顶部按键">
     <div class="wrap hero-content">
       <p class="kicker">复刻工作台 <span> / </span> 5.2.2</p>
-      <h1 id="title">噜噜绘时钟 V2</h1>
+      <h1 id="title">噜噜绘时钟</h1>
       <p class="hero-lede">打印外壳和机械臂，画出第一个光绘方框。</p>
       <a class="primary" href="#steps">
         开始复刻
@@ -79,7 +79,7 @@
           <span>2 × SG90</span>
           <span>Android 8+</span>
         </div>
-        <p>按 R16 装配修订 A1 打印外壳与机械臂，再接线、烧录并校准。成品照来自原型，下载包中的配合和行程要用自己买到的零件试装验收。</p>
+        <p>按 R16 装配修订 A1 打印六件外壳，配合四件按相同中心距重做的机械臂连杆，再接线、烧录和校准。成品照来自原型；打印件的配合和行程需用你手上的零件试装验收。</p>
       </div>
 
       <section class="step" id="parts">
@@ -90,7 +90,7 @@
           <div><dt>用光实绘</dt><dd>约 80 × 40 mm 蓄光板、与材料匹配的紫光或近紫外 LED、接受 3.3 V PWM 的限流驱动。先确认电流规格与兼容性。</dd></div>
           <div><dt>调试及选装</dt><dd>万用表、实尺或卡尺；外接 UART0 时准备 3.3 V 逻辑 USB-TTL。侧屏可选 0.96 英寸 SSD1306（128 × 64，I²C）；温湿度、光敏、蜂鸣器和灯带按需加。</dd></div>
         </dl>
-        <p class="file-links"><a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/bom.csv" data-local="../hardware/bom.csv">物料清单 CSV</a></p>
+        <p class="file-links"><a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/bom.csv" data-local="../hardware/bom.csv">物料清单 CSV</a></p>
         <label class="check"><input type="checkbox" id="check-parts" data-step="parts"> <span>已核对板型、供电、舵机和机构用料</span></label>
       </section>
 
@@ -104,16 +104,16 @@
           <li>前面板先不锁紧。留出端口、量测和调整空间，完成接线、灭灯空走与实绘后再合壳。合壳前检查线束不会被夹到，按键可以回弹。</li>
         </ol>
         <p class="file-links">
-          <a href="https://github.com/yuhuang007/LuluClock_V2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip">下载整套 STL</a>
-          <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/enclosure/README.md" data-local="../hardware/enclosure/README.md">打印清单、装配与 Blender 源文件</a>
+          <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip">下载整套 STL</a>
+          <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/enclosure/README.md" data-local="../hardware/enclosure/README.md">打印清单、装配与 Blender 源文件</a>
         </p>
         <details class="alternate">
           <summary>还没打印外壳？先用开放台架排查机构</summary>
           <p>按 100% 打印 A4 模板，量 50 mm 标尺确认比例，核对 25 mm 轴心距和杆件孔中心距。开放台架与整机使用相同的四件机械臂，适合先排查运动、灯头高度和线束。</p>
           <div class="file-links">
-            <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/bench-jig.svg" data-local="../hardware/bench-jig.svg">1:1 台架模板</a>
-            <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/bench/README.md" data-local="../hardware/bench/README.md">台架连杆</a>
-            <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/README.md" data-local="../hardware/README.md">几何与装臂细节</a>
+            <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/bench-jig.svg" data-local="../hardware/bench-jig.svg">1:1 台架模板</a>
+            <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/bench/README.md" data-local="../hardware/bench/README.md">台架连杆</a>
+            <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/README.md" data-local="../hardware/README.md">几何与装臂细节</a>
           </div>
         </details>
         <label class="check"><input type="checkbox" id="check-mechanics" data-step="mechanics"> <span>已试装打印件，并核对轴距、关节方向与线束空间</span></label>
@@ -136,7 +136,7 @@
         <div class="callout">
           <p><strong>先只给主控上电。</strong>不接舵机、灯头、灯带和电池，断电核对短路与极性。舵机从独立的 5 V 负载支路供电，各支路共地，避免多个电源同时向同一电源轨供电。GPIO6 / GPIO11 只接驱动输入，裸 LED 与灯带不要从 GPIO 取电。</p>
         </div>
-        <p class="file-links"><a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/wiring.md" data-local="../hardware/wiring.md">完整接线与上电检查</a></p>
+        <p class="file-links"><a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/wiring.md" data-local="../hardware/wiring.md">完整接线与上电检查</a></p>
         <label class="check"><input type="checkbox" id="check-wiring" data-step="wiring"> <span>已断电核线，首轮只接主控</span></label>
       </section>
 
@@ -149,7 +149,7 @@
           <li>先「验证」编译，再选对串口执行「上传」。使用外接 USB-TTL 时须为 3.3 V 逻辑、TX/RX 交叉、共地且 VCC 留空；板载与外接串口桥不要同时驱动 UART0。无法下载时按硬件文档核对 BOOT（GPIO0）和 EN。</li>
         </ol>
         <p><code>JianClock.ino.bin</code> 是可用于兼容设备 OTA 的应用镜像。公开版 APK 不内置固件；需要 OTA 时，在应用里手动选择本地编译的应用镜像。</p>
-        <p class="file-links"><a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/firmware/README.md" data-local="../firmware/README.md">Arduino IDE、CLI 与镜像说明</a></p>
+        <p class="file-links"><a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/firmware/README.md" data-local="../firmware/README.md">Arduino IDE、CLI 与镜像说明</a></p>
         <label class="check"><input type="checkbox" id="check-firmware" data-step="firmware"> <span>编译和串口上传完成，已确认主控能启动</span></label>
       </section>
 
@@ -165,9 +165,21 @@
           <img src="assets/app.jpg" alt="噜噜绘时钟的 5.2.2 应用界面预览，包含手机与平板布局" loading="lazy">
           <figcaption>应用界面预览，读数为演示数据。</figcaption>
         </figure>
+        <details class="app-motion">
+          <summary>看看 App 的液态玻璃、深浅主题和连接动画</summary>
+          <p>在支持的 WebView 上，手机底栏与平板侧栏会折射玻璃边缘的背景。点选时胶囊拉伸回弹，拖动时它随手指移动。点主题图标，深浅主题从点击处作圆形过渡。</p>
+          <figure class="landscape">
+            <img src="assets/glass-motion.gif" alt="液态玻璃导航胶囊在标签之间滑动，深浅主题从点击点展开" width="770" height="600" loading="lazy">
+            <figcaption>应用画面录自浏览器；设备状态为演示数据。</figcaption>
+          </figure>
+          <p>到「设置 → 外观与主题」，切到「完整动效」并点「预览连接」或「预览断开」，即可看笔绘时钟和橡皮擦动画，无需连接设备。</p>
+          <figure class="landscape">
+            <img src="assets/connection-motion.jpg" alt="应用内置预览：连接时用笔绘制，断开时用橡皮擦淡出" width="1280" height="566" loading="lazy">
+          </figure>
+        </details>
         <p class="file-links">
-          <a href="https://github.com/yuhuang007/LuluClock_V2/releases/tag/v5.2.2">下载 Android APK</a>
-          <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/android-app/README.md" data-local="../android-app/README.md">App 构建与连接说明</a>
+          <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2.apk">下载 Android APK</a>
+          <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/android-app/README.md" data-local="../android-app/README.md">App 构建与连接说明</a>
         </p>
         <label class="check"><input type="checkbox" id="check-calibrate" data-step="calibrate"> <span>已完成 A/B 装臂和空走，灯头、板面与线束无干涉</span></label>
       </section>
@@ -211,7 +223,7 @@
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <span>LuluClock V2 <span class="muted">/</span> 复刻教程 · 5.2.2</span>
+      <span>LuluClock <span class="muted">/</span> 复刻教程 · 5.2.2</span>
       <a href="#top">回到顶部 ↑</a>
     </div>
   </footer>

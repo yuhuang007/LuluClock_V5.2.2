@@ -1,77 +1,117 @@
 <div align="center">
 
-# 噜噜绘时钟 · LuluClock V2
+# 噜噜绘时钟 · LuluClock V5.2.2
 
-**让时间，留下痕迹。**
+**一台会用光画画的桌面时钟。**
 
-两只舵机控制一个紫外灯头，把时间、文字和手绘轨迹画在蓄光板上。
-从 R16 A1 整机打印到第一次光绘，模型、接线和源码都在这里。
+两只舵机带动灯头，在蓄光板上写下时间、汉字和手绘图案。<br>
+这里有 R16 A1 外壳、整套打印件、固件和 Android App，可以跟着教程从零复刻。
 
-**5.2.2 · ESP32-S3 N16R8 · Android 8+ · R16 装配修订 A1**
+<a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4"><img src="docs/assets/banner.jpg" alt="原型实拍：白色噜噜绘时钟、顶部橘子键帽、侧面 OLED 与正面双舵机机械臂。点击下载作品视频。" width="100%"></a>
 
-[开始复刻](#从零复刻) · [网页版教程](https://yuhuang007.github.io/LuluClock_V2/) · [一键下载十件 STL](https://github.com/yuhuang007/LuluClock_V2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip) · [源码导航](#源码导航)
+<a href="https://yuhuang007.github.io/LuluClock_V5.2.2/"><img src="docs/assets/action-guide.png" alt="打开网页版复刻教程" width="30%"></a> <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip"><img src="docs/assets/action-stl.png" alt="下载整机十件 STL" width="30%"></a> <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2.apk"><img src="docs/assets/action-apk.png" alt="下载 Android APK" width="30%"></a>
 
-<img src="docs/assets/banner.jpg" alt="噜噜绘时钟实拍原型，正面是蓄光板和双舵机连杆，顶部三键，侧面 OLED" width="100%">
+[开始复刻](https://yuhuang007.github.io/LuluClock_V5.2.2/) · [下载 STL](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip) · [下载 APK](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2.apk) · [作品视频](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4)
+
+**ESP32-S3 N16R8 · 双 SG90 · 可选 SSD1306 · Android 8+**
+
+[实拍](#01--实际画出来是什么样) · [App 动效](#02--app-的液态玻璃与动效) · [打印](#03--外壳和机械臂一次下齐) · [复刻](#04--从备料到第一笔) · [原理](#05--一笔怎么到达板面) · [源码](#06--工程地图)
 
 </div>
 
-## 从零复刻
-
-**整机需要打印 10 件：六件外壳零件、四件机械臂。** 外壳采用项目的 R16 装配修订 A1，提供可编辑 Blender 文件；直接用 STL 切片即可。没有打印机也可以用 [1:1 模板](hardware/bench-jig.svg) 先搭开放台架。
-
-| 步骤 | 做什么 | 到这一步能确认什么 |
-| --- | --- | --- |
-| 01 备料 | [物料清单 CSV](hardware/bom.csv)；准备 ESP32-S3 N16R8、双 SG90、底板、三键和限流电源 | 核对板型、供电、舵机和紧固件 |
-| 02 打印与试装 | [打印清单](hardware/enclosure/README.md) · [外壳 Blender](hardware/enclosure/LuluClock-R16-A1.blend) | 按毫米、100% 切片，核对舵机轴心距 **25.00 mm**，先试装别急着合壳 |
-| 03 接线 | [5.2.2 接线与上电](hardware/wiring.md) | 正面看左舵机 GPIO5、右舵机 GPIO4；GPIO6/11 只驱动外部电路 |
-| 04 烧录 | [Arduino IDE / CLI](firmware/README.md) | 空板用完整串口烧录；主控能启动、App 能找到设备 |
-| 05 连接与校准 | [安装 APK](https://github.com/yuhuang007/LuluClock_V2/releases/download/v5.2.2/LuluClock-5.2.2.apk) · [装臂与空走](hardware/README.md#3-装臂和校准) | 先断开灯头，检查 A/B 姿态、归位和碰撞 |
-| 06 实绘 | 创作 → 测试图形 → **10 × 10 mm 校验方框** → 发送 | 用尺测横纵尺寸，然后试文字与时间 |
-
-网页版有逐项勾选进度和常见问题：[在线打开](https://yuhuang007.github.io/LuluClock_V2/)；离线可在下载后的目录中打开 [`docs/index.html`](docs/index.html)。
-
-> 实拍为项目原型。六件外壳使用 R16 A1 交付网格；四件连杆为按同一运动几何重做的打印件，已校核数字尺寸与网格，和外壳的完整实体配合仍需试装。
-
-公开版 APK 使用独立签名。如果设备上已有不同签名的安装包，先按 [Android 说明](android-app/README.md) 处理，避免丢失本地收藏。
-
-## 实机效果
+## 01 · 实际画出来是什么样
 
 <p align="center">
-  <img src="docs/assets/drawing-time.gif" alt="原型机用机械臂移动灯头、在蓄光板上绘制时间的原速实拍" width="560">
+  <img src="docs/assets/drawing-time.gif" alt="原型机实时移动灯头，在蓄光板上画出时间" width="560">
 </p>
 
-**[原型演示视频（约 3 分 46 秒）](https://github.com/yuhuang007/LuluClock_V2/releases/download/v5.2.2/LuluClock-V2-Prototype-720p.mp4)** 展示真实绘时、平板发送「你好世界」和实体按键。手机与横屏平板共用一个 APK；应用还有手绘、收藏、倒计时与番茄钟。
+画线时灯头亮起，换笔时灭灯移动。完成后，线条会在板面短暂停留。它能按计划绘时，也能从 App 接收「你好世界」或随手画的图案。
+
+**[下载 3 分 46 秒作品视频](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4)**，内含整机实拍、App 与实机联动、OLED 操作及带标注的原理演示。
+
+| 创作 | 时间与交互 | 自定义 |
+| --- | --- | --- |
+| 汉字按笔顺生成、自由手绘、尺寸预览、图案收藏 | 自动绘时、倒计时、番茄钟；机身侧屏显示时间、环境与任务 | 手机和平板布局、深浅主题、界面动画开关；OLED 亮度与休眠 |
+
+## 02 · App 的液态玻璃与动效
+
+手机底栏和平板侧栏以透明材质、边缘折射和滑动胶囊显示当前位置：手指移动时，胶囊跟随；松手切页时，拉伸并回弹。深浅主题则从点击点以圆形展开。
+
+<p align="center">
+  <img src="docs/assets/glass-motion.gif" alt="液态玻璃胶囊随点击或拖动滑动，右上角触发深浅主题圆形切换" width="720">
+</p>
+
+**连上的时候，用笔画出一台小钟；主动断开时，用橡皮擦把它收起来。** 应用内「设置 → 外观与主题 → 完整动效」可预览连接与断开，无需连接设备。动效也可以跟随系统或关闭。
 
 <details>
-<summary>查看 App 与 OLED 界面</summary>
+<summary><strong>展开：笔绘与擦除、手机与平板、侧面 OLED</strong></summary>
 
-![App 5.2.2 手机总览、倒计时和平板深色创作页；当前读数为演示数据](docs/assets/app.jpg)
+![连接时用笔画出时钟，断开时用橡皮擦收起时钟](docs/assets/connection-motion.jpg)
 
-![固件 OLED 界面示意：时间、环境、当前任务与自动绘时](docs/assets/oled.jpg)
+![同一 APK 的手机设备总览、倒计时与平板深色创作页](docs/assets/app.jpg)
 
-OLED 为 0.96 英寸 SSD1306（128 × 64）。设备空闲时长按中键 5 秒进入设置，松开后左键选项、右键改值、中键短按保存；松开后再长按中键 5 秒退出。
+![侧面 OLED 的时间页、环境页和任务页](docs/assets/oled.jpg)
+
+OLED 是 0.96 英寸 SSD1306，128 × 64。设备空闲时长按中键 5 秒进入设置，松开后左选、右改、中键短按保存；再次松开并长按中键 5 秒退出。
 
 </details>
 
-## 一笔是怎么画出来的
+<sub>本节 App 动图与截图由当前应用在浏览器中渲染，样例设备状态为模拟；折射及主题效果取决于 Android WebView 的支持情况。</sub>
 
-![从应用画布生成笔画，经 BLE 传到固件，再由运动规划控制舵机和灯头](docs/assets/signal-flow.jpg)
+## 03 · 外壳和机械臂一次下齐
 
-App 将手绘或汉字笔顺转换为毫米坐标。ESP32-S3 对轨迹做可达性检查和运动规划，输出两路舵机目标；落笔亮灯，换笔灭灯移动。蓄光板会短暂保留线条。装配精度、光斑和板面间隙决定实物结果，软件中的目标位置不是传感器实测值。
+[<img src="docs/assets/print-kit.jpg" alt="R16 A1 的十个实际打印网格：A1 主壳、R16 前面板、三颗键帽、USB 挡块及四根机械连杆" width="100%">](hardware/enclosure/README.md)
 
-## 源码导航
-
-| 目录 | 从这里开始 |
+| 下载 | 里面有什么 |
 | --- | --- |
-| [`hardware/`](hardware/) | 物料、十件 STL、R16 A1 可编辑 Blender、接线与校准 |
-| [`firmware/`](firmware/) | `JianClock.ino`、几何、运动规划、BLE、OLED、Arduino 配置 |
-| [`android-app/`](android-app/) | Java + WebView 应用、手动 OTA、可自签的构建脚本和 Node 回归 |
-| [`docs/`](docs/) | 无需联网依赖的网页教程、原型配图与界面示意 |
+| **[整机 STL 压缩包](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip)** | **10 件**：主壳、前面板、三颗键帽、USB 挡块、四根连杆；附部件清单及 SHA-256 |
+| **[R16 A1 外壳 Blender 文件](hardware/enclosure/LuluClock-R16-A1.blend)** | 六个外壳零件的可编辑网格；机械臂使用随包 STL |
+| **[逐件 STL 与装配说明](hardware/enclosure/README.md)** | 打印方向、关键中心距、试装顺序和合壳前检查 |
+| **[A4 台架图](hardware/bench-jig.svg)** | 1:1 校核轴心距和孔位；没有打印机也可先用平板搭台架 |
 
-- **改硬件或轨迹**：[固定引脚与设置](firmware/JianClock/Config.h) · [几何求解](firmware/JianClock/Geometry.h) · [亮灯与暗移时序](firmware/JianClock/MotionExecutor.h)。
-- **改 App**：[Android 环境与构建](android-app/README.md) · [WebView 入口](android-app/assets/index.html)。自己编译默认输出未签名 APK，可用自己的本地开发密钥签名。
-- **验证与升级**：固件用 Arduino ESP32 **3.3.12**、U8g2 **2.36.19**；应用用 JDK 17、Android SDK 35。空板首次烧录走串口。公开版 APK 不内置固件，兼容设备可在 App 里手动选择本地编译的应用镜像做 OTA。
+外壳是 R16 装配修订 A1。四件臂按原运动中心距另行绘制，已核对尺寸及闭合网格；与外壳的实物配合仍需试装。打印用 **毫米、100%**；舵盘、螺丝、灯珠和蓄光板另备。
 
-## 来源与许可
+## 04 · 从备料到第一笔
 
-见 [来源与许可说明](THIRD_PARTY.md)。第三方汉字数据保留原许可与来源记录；原创代码和文档尚未指定统一许可证，公开可见不等于所有内容均按同一许可授权。
+**完整步骤见 [网页版教程](https://yuhuang007.github.io/LuluClock_V5.2.2/)**，可以边做边勾选。离线解压后双击 [`docs/index.html`](docs/index.html)。
+
+| 步骤 | 看哪份资料 | 完成标志 |
+| --- | --- | --- |
+| **01 备料** | [物料表](hardware/bom.csv) | ESP32-S3 N16R8、两只 SG90、5 V 限流供电和紧固件齐全 |
+| **02 打印与试装** | [R16 A1 外壳和 STL](hardware/enclosure/README.md) | 轴距 **25.00 mm**，舵盘防转固定，手动行程无卡滞 |
+| **03 分步接线** | [接线图、供电与上电顺序](hardware/wiring.md) | 正视左舵机 **GPIO5**、右舵机 **GPIO4**；灯头驱动暂不接入 |
+| **04 首次烧录** | [Arduino IDE / CLI](firmware/README.md) | 空板经串口刷入，App 找得到设备 |
+| **05 装臂与空走** | [校准步骤](hardware/README.md#3-装臂和校准) | A/B 姿态、归位、运转间隙和线束通过检查 |
+| **06 第一次实绘** | 创作 → 测试图形 → **10 × 10 mm 校验方框** | 用尺测横纵尺寸，再试时间和汉字 |
+
+<details>
+<summary><strong>展开 5.2.2 接线总览</strong></summary>
+
+[![ESP32-S3 的舵机、三键、OLED、灯驱动、传感器和 UART0 连接图](docs/assets/wiring.svg)](hardware/wiring.svg)
+
+GPIO6、GPIO11 是控制信号，分别接灯头限流驱动和灯带驱动。双 SG90 用合适的 5 V 负载支路，与主控共地。详情和分步检查见 [接线说明](hardware/wiring.md)。
+
+</details>
+
+## 05 · 一笔怎么到达板面
+
+![从 App 画布生成毫米轨迹，经 BLE 发给 ESP32-S3，运动规划控制舵机与灯头](docs/assets/signal-flow.jpg)
+
+1. **迹线生成**：App 把手绘或汉字笔顺换算成毫米坐标，经 BLE 分段发送。
+2. **运动求解**：ESP32-S3 检查可达范围，分别计算两个舵机的目标和运动时序。
+3. **实机成像**：连杆定位灯头，按笔画亮灭。固件控制的是开环目标，实际尺寸和亮度仍由机械校准与光学间隙决定。
+
+## 06 · 工程地图
+
+| 目录 | 主要内容 |
+| --- | --- |
+| [`hardware/`](hardware/) | R16 A1 外壳、十件 STL、17 项物料表、接线和校准 |
+| [`firmware/`](firmware/) | `JianClock.ino`、ESP32-S3 / BLE / OLED、运动规划 |
+| [`android-app/`](android-app/) | Java + WebView，手绘与汉字、液态玻璃、手动 OTA 和回归 |
+| [`docs/`](docs/) | 自包含网页版教程、实拍、动图和复刻图解 |
+
+**构建入口**：[ESP32-S3 固件](firmware/README.md)使用 Arduino ESP32 **3.3.12** 与 U8g2 **2.36.19**；[Android 源码](android-app/README.md)使用 JDK 17 与 Android SDK 35，默认编译未签名包。Release APK 用独立签名，不能覆盖同包名的不同签名版本。公开 APK 不内置固件，兼容设备可手动选取本地编译的应用镜像进行 OTA。
+
+**源码坐标**：[引脚配置](firmware/JianClock/Config.h) · [几何求解](firmware/JianClock/Geometry.h) · [运动规划](firmware/JianClock/MotionExecutor.h) · [App 界面](android-app/assets/index.html) · [玻璃和主题](android-app/assets/app418.js) · [连接动效](android-app/assets/connection-motion.js)
+
+**来源与许可**：见 [THIRD_PARTY.md](THIRD_PARTY.md)。汉字笔顺等第三方素材保留原许可；原创代码、设计和文档尚未指定统一授权。
