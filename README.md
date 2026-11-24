@@ -5,13 +5,13 @@
 **一台会用光画画的桌面时钟。**
 
 两只舵机带动灯头，在蓄光板上写下时间、汉字和手绘图案。<br>
-这里有 R16 A1 外壳、整套打印件、固件和 Android App，可以跟着教程从零复刻。
+这里有 R16 A1 外壳、整机 12 件打印包、固件和 Android App，可以跟着教程从零复刻。
 
 <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4"><img src="docs/assets/banner.jpg" alt="原型实拍：白色噜噜绘时钟、顶部橘子键帽、侧面 OLED 与正面双舵机机械臂。点击下载作品视频。" width="100%"></a>
 
-<a href="https://yuhuang007.github.io/LuluClock_V5.2.2/"><img src="docs/assets/action-guide.png" alt="打开网页版复刻教程" width="30%"></a> <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip"><img src="docs/assets/action-stl.png" alt="下载整机十件 STL" width="30%"></a> <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2.apk"><img src="docs/assets/action-apk.png" alt="下载 Android APK" width="30%"></a>
+<a href="https://yuhuang007.github.io/LuluClock_V5.2.2/"><img src="docs/assets/action-guide.png" alt="打开网页版复刻教程" width="30%"></a> <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip"><img src="docs/assets/action-stl.png" alt="下载整机 12 件 STL" width="30%"></a> <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2.apk"><img src="docs/assets/action-apk.png" alt="下载 Android APK" width="30%"></a>
 
-[开始复刻](https://yuhuang007.github.io/LuluClock_V5.2.2/) · [下载 STL](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip) · [下载 APK](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2.apk) · [作品视频](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4)
+[开始复刻](https://yuhuang007.github.io/LuluClock_V5.2.2/) · [12 件 STL](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip) · [下载 APK](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2.apk) · [作品视频](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4)
 
 **ESP32-S3 N16R8 · 双 SG90 · 可选 SSD1306 · Android 8+**
 
@@ -60,25 +60,25 @@ OLED 是 0.96 英寸 SSD1306，128 × 64。设备空闲时长按中键 5 秒进�
 
 ## 03 · 外壳和机械臂一次下齐
 
-[<img src="docs/assets/print-kit.jpg" alt="R16 A1 的十个实际打印网格：A1 主壳、R16 前面板、三颗键帽、USB 挡块及四根机械连杆" width="100%">](hardware/enclosure/README.md)
+[<img src="docs/assets/print-kit.jpg" alt="整机 12 件打印网格：A1 主壳、R16 前面板、三个键帽、USB 挡块、四件连杆、正面绘制屏背板和灯光盖" width="100%">](hardware/enclosure/README.md)
 
 | 下载 | 里面有什么 |
 | --- | --- |
-| **[整机 STL 压缩包](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip)** | **10 件**：主壳、前面板、三颗键帽、USB 挡块、四根连杆；附部件清单及 SHA-256 |
-| **[R16 A1 外壳 Blender 文件](hardware/enclosure/LuluClock-R16-A1.blend)** | 六个外壳零件的可编辑网格；机械臂使用随包 STL |
+| **[整机 STL 压缩包](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip)** | **12 件**：六件 R16 A1 外壳件、四件连杆、正面绘制屏背板和灯光盖；附部件清单及 SHA-256 |
+| **[R16 A1 外壳 Blender 文件](hardware/enclosure/LuluClock-R16-A1.blend)** | 六件外壳的可编辑网格；连杆、背板和灯光盖使用随包 STL |
 | **[逐件 STL 与装配说明](hardware/enclosure/README.md)** | 打印方向、关键中心距、试装顺序和合壳前检查 |
 | **[A4 台架图](hardware/bench-jig.svg)** | 1:1 校核轴心距和孔位；没有打印机也可先用平板搭台架 |
 
-外壳是 R16 装配修订 A1。四件臂按原运动中心距另行绘制，已核对尺寸及闭合网格；与外壳的实物配合仍需试装。打印用 **毫米、100%**；舵盘、螺丝、灯珠和蓄光板另备。
+这套 12 件组合尚未实体试装。切片用 **毫米、100%**。先试配正面绘制屏背板和灯光盖，再用舵盘、螺钉和间隙确定高、低座主动臂的左右位置。孔径、中心距和层差以试件实测为准，固件默认几何与台架示意仅作对照。舵盘、螺丝、灯珠和蓄光板另备。
 
 ## 04 · 从备料到第一笔
 
-**完整步骤见 [网页版教程](https://yuhuang007.github.io/LuluClock_V5.2.2/)**，可以边做边勾选。离线解压后双击 [`docs/index.html`](docs/index.html)。
+**完整步骤见 [网页版教程](https://yuhuang007.github.io/LuluClock_V5.2.2/)**，可以边做边勾选。离线使用时[下载当前主分支完整工程 ZIP](https://github.com/yuhuang007/LuluClock_V5.2.2/archive/refs/heads/main.zip)，解压后打开 [`docs/index.html`](docs/index.html)。
 
 | 步骤 | 看哪份资料 | 完成标志 |
 | --- | --- | --- |
 | **01 备料** | [物料表](hardware/bom.csv) | ESP32-S3 N16R8、两只 SG90、5 V 限流供电和紧固件齐全 |
-| **02 打印与试装** | [R16 A1 外壳和 STL](hardware/enclosure/README.md) | 轴距 **25.00 mm**，舵盘防转固定，手动行程无卡滞 |
+| **02 打印与试装** | [整机 12 件 STL](hardware/enclosure/README.md) | 背板和灯光盖已对位；舵盘固定后，手动走完整行程无卡滞 |
 | **03 分步接线** | [接线图、供电与上电顺序](hardware/wiring.md) | 正视左舵机 **GPIO5**、右舵机 **GPIO4**；灯头驱动暂不接入 |
 | **04 首次烧录** | [Arduino IDE / CLI](firmware/README.md) | 空板经串口刷入，App 找得到设备 |
 | **05 装臂与空走** | [校准步骤](hardware/README.md#3-装臂和校准) | A/B 姿态、归位、运转间隙和线束通过检查 |
@@ -105,7 +105,7 @@ GPIO6、GPIO11 是控制信号，分别接灯头限流驱动和灯带驱动。�
 
 | 目录 | 主要内容 |
 | --- | --- |
-| [`hardware/`](hardware/) | R16 A1 外壳、十件 STL、17 项物料表、接线和校准 |
+| [`hardware/`](hardware/) | R16 A1 外壳、12 件 STL、19 项物料表、接线和校准 |
 | [`firmware/`](firmware/) | `JianClock.ino`、ESP32-S3 / BLE / OLED、运动规划 |
 | [`android-app/`](android-app/) | Java + WebView，手绘与汉字、液态玻璃、手动 OTA 和回归 |
 | [`docs/`](docs/) | 自包含网页版教程、实拍、动图和复刻图解 |

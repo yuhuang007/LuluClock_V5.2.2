@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297" role="img" aria-labelledby="title description">
   <title id="title">LuluClock 5.2.2 · 1:1 台架定位模板</title>
-  <desc id="description">A4 一比一舵机轴及板面定位；四根连杆的孔中心距。包含 50 mm 标尺与 10 mm 方形。</desc>
+  <desc id="description">A4 一比一台架定位，舵机轴间距 25 mm。连杆为固件名义孔距；附 50 mm 标尺与 10 mm 方形。</desc>
   <defs>
     <g id="mark" fill="#fff" stroke-width=".32">
       <circle r="1.7"/>
@@ -64,8 +64,8 @@
   <text x="146" y="131" class="small">不是运动包络。</text>
 
   <path d="M12 141.5h186" class="outline"/>
-  <text x="12" y="152" class="section">02　连杆展开 · 转印孔中心</text>
-  <text x="12" y="159.5" class="small">线段是孔距，不是外轮廓；带花键的一端固定于配套舵盘。三孔件朝向不能镜像。</text>
+  <text x="12" y="152" class="section">02　固件名义连杆孔距</text>
+  <text x="12" y="159.5" class="small">此处为求解参数；随包 STL 孔距以网格为准。核对三孔件朝向，勿镜像。</text>
   <path d="M23 177h33.35M117 177h34.85" class="left"/>
   <use href="#mark" x="23" y="177" class="left"/>
   <use href="#mark" x="56.35" y="177" class="left"/>
@@ -101,6 +101,6 @@
   <text x="70" y="260" class="small" text-anchor="end">50 mm</text>
   <rect x="114" y="247" width="10" height="10" class="outline"/>
   <text x="130" y="253">10 × 10 mm</text>
-  <text x="12" y="273" class="small">打印比例正确后再转印轴心和关节孔。灯头间隙、舵机外廓和装配公差需按实物复核。</text>
-  <text x="12" y="282" class="small">几何依据：5.2.2 Geometry.h / drawing-scale.js。该纸模板不包含支架强度或整机行程测试。</text>
+  <text x="12" y="273" class="small">用 50 mm 标尺校验后再转印 25 mm 轴间距。灯头间隙与装配公差按实物复核。</text>
+  <text x="12" y="282" class="small">几何依据：5.2.2 Geometry.h / drawing-scale.js。此图不评估支架强度与整机行程。</text>
 </svg>

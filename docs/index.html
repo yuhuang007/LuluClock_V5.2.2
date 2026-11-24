@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#18342f">
-  <meta name="description" content="从备料、3D 打印外壳和机械臂，到第一次用紫外灯头画出 10 mm 方框。噜噜绘时钟 5.2.2 复刻教程。">
+  <meta name="description" content="从备料、3D 打印整机 12 件配件，到第一次用紫外灯头画出 10 mm 方框。噜噜绘时钟 5.2.2 复刻教程。">
   <title>噜噜绘时钟 5.2.2 · 复刻教程</title>
   <link rel="stylesheet" href="guide.css">
   <script src="guide.js" defer></script>
@@ -79,14 +79,14 @@
           <span>2 × SG90</span>
           <span>Android 8+</span>
         </div>
-        <p>按 R16 装配修订 A1 打印六件外壳，配合四件按相同中心距重做的机械臂连杆，再接线、烧录和校准。成品照来自原型；打印件的配合和行程需用你手上的零件试装验收。</p>
+        <p>整机共 12 件打印件：六件 R16 A1 外壳件、四件连杆、正面绘制屏背板和灯光盖。成品照来自原型，这套打印件组合尚未实体试装。</p>
       </div>
 
       <section class="step" id="parts">
         <header><span class="step-index">01</span><h2>备料</h2></header>
         <p class="step-intro">按清单确认舵机轴、屏幕外形和紧固件。建议先用稳压电源调通动作，再加灯带或电池。</p>
         <dl class="parts-matrix">
-          <div><dt>首轮必备</dt><dd>ESP32-S3 N16R8、SG90 × 2（带舵盘）、常开按键 × 3、打印外壳和连杆、匹配的紧固件与垫片、可限流的 5 V 稳压电源。</dd></div>
+          <div><dt>首轮必备</dt><dd>ESP32-S3 N16R8、SG90 × 2（带舵盘）、常开按键 × 3、整机 12 件打印件、匹配的紧固件与垫片、可限流的 5 V 稳压电源。</dd></div>
           <div><dt>用光实绘</dt><dd>约 80 × 40 mm 蓄光板、与材料匹配的紫光或近紫外 LED、接受 3.3 V PWM 的限流驱动。先确认电流规格与兼容性。</dd></div>
           <div><dt>调试及选装</dt><dd>万用表、实尺或卡尺；外接 UART0 时准备 3.3 V 逻辑 USB-TTL。侧屏可选 0.96 英寸 SSD1306（128 × 64，I²C）；温湿度、光敏、蜂鸣器和灯带按需加。</dd></div>
         </dl>
@@ -96,27 +96,31 @@
 
       <section class="step" id="mechanics">
         <header><span class="step-index">02</span><h2>打印外壳与机械臂</h2></header>
-        <p class="step-intro">整机打印包含 A1 主壳、R16 前面板、三个键帽、USB 挡块及机械臂。用 STL 切片，用 Blender 源文件查看或改尺寸。</p>
+        <p class="step-intro">A1 主壳、R16 前面板、三个键帽、USB 挡块、四件连杆、正面绘制屏背板和灯光盖各打印一件。六件外壳另有 Blender 文件。</p>
+        <figure class="landscape">
+          <a href="assets/print-kit.jpg"><img src="assets/print-kit.jpg" alt="带编号的整机 12 件打印件：六件外壳件、四件连杆、正面绘制屏背板和灯光盖" width="1440" height="1018" loading="lazy"></a>
+          <figcaption>按编号核对外壳、连杆、背板和灯光盖；图未按同一比例缩放。</figcaption>
+        </figure>
         <ol>
-          <li>按文件清单导入 STL，单位用<strong>毫米、比例 100%</strong>。保留左右件的区分，尤其不要镜像三孔杆。可从 0.4 mm 喷嘴、0.16–0.20 mm 层高试起，先看细槽、孔位和桥接的切片预览。</li>
-          <li>主壳通常后背贴平台、开口向上。前面板与连杆逐件检查支撑、贴底和孔位。先做小件试装，去除毛边后核对键帽回弹、紧固件、Type-C 与 OLED 开窗。</li>
-          <li>断电干装舵机、板面和内侧模块，双轴中心距核对为 <strong>25.00 mm</strong>。主动臂用舵机匹配的舵盘，等校准到 A 位再装，不要在此时固定角度。关节处用垫片错层，确保灯头与线束不刮板。</li>
-          <li>前面板先不锁紧。留出端口、量测和调整空间，完成接线、灭灯空走与实绘后再合壳。合壳前检查线束不会被夹到，按键可以回弹。</li>
+          <li>按清单以<strong>毫米、100%</strong> 导入 STL，不要镜像或缩放连杆。主壳通常后背贴平台、开口向上。前面板和小件逐一检查支撑、孔位和桥接，去毛边后核对按键回弹、Type-C 和 OLED 侧窗。</li>
+          <li>先试配<strong>正面绘制屏背板和灯光盖</strong>。背板与正面绘制屏对位，检查卡位、板面和引线空间；灯光盖确认安装方向、出光与走线，不遮光、不压线。</li>
+          <li>断电试配高、低座主动臂和舵盘，按实际安装位判断左右。量双轴及关节的中心距、孔径和错层高度，与固件默认几何对照；示意值不能代替实测。到步骤 05 校准至 A 位后再锁紧齿位。</li>
+          <li>前面板先不锁紧，手动走过全行程，确认盖件、灯头、前面板、关节和线束没有干涉。通过灭灯空走和 10 × 10 mm 方框验收后再合壳。</li>
         </ol>
         <p class="file-links">
-          <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip">下载整套 STL</a>
+          <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip">下载整套 STL（12 件）</a>
           <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/enclosure/README.md" data-local="../hardware/enclosure/README.md">打印清单、装配与 Blender 源文件</a>
         </p>
         <details class="alternate">
           <summary>还没打印外壳？先用开放台架排查机构</summary>
-          <p>按 100% 打印 A4 模板，量 50 mm 标尺确认比例，核对 25 mm 轴心距和杆件孔中心距。开放台架与整机使用相同的四件机械臂，适合先排查运动、灯头高度和线束。</p>
+          <p>按 100% 打印 A4 模板，量 50 mm 标尺确认比例。整机包 07–10 号连杆可先装在开放台架上检查灯头高度、运动和线束；模板上的孔距用于对照固件名义几何，配合以实物试装为准。</p>
           <div class="file-links">
             <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/bench-jig.svg" data-local="../hardware/bench-jig.svg">1:1 台架模板</a>
             <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/bench/README.md" data-local="../hardware/bench/README.md">台架连杆</a>
             <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/blob/main/hardware/README.md" data-local="../hardware/README.md">几何与装臂细节</a>
           </div>
         </details>
-        <label class="check"><input type="checkbox" id="check-mechanics" data-step="mechanics"> <span>已试装打印件，并核对轴距、关节方向与线束空间</span></label>
+        <label class="check"><input type="checkbox" id="check-mechanics" data-step="mechanics"> <span>背板、灯光盖和主动臂已试配，手动全行程无干涉</span></label>
       </section>
 
       <section class="step" id="wiring">
