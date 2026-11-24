@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+ <defs>
+  <linearGradient id="tile" x1="20" y1="4" x2="105" y2="128" gradientUnits="userSpaceOnUse"><stop stop-color="#35473C"/><stop offset="1" stop-color="#1B2D24"/></linearGradient>
+  <linearGradient id="dial" x1="42" y1="36" x2="85" y2="101" gradientUnits="userSpaceOnUse"><stop stop-color="#F7E9C9"/><stop offset=".62" stop-color="#ECD3A5"/><stop offset="1" stop-color="#E9AE67"/></linearGradient>
+ </defs>
+ <rect x="3" y="3" width="122" height="122" rx="33" fill="url(#tile)"/>
+ <rect x="3.75" y="3.75" width="120.5" height="120.5" rx="32.25" stroke="#FFFFFF" stroke-opacity=".10" stroke-width="1.5"/>
+ <!-- A simple citrus-clock outline with one leaf. Dial and hands share (64,68). -->
+ <circle cx="64" cy="68" r="33" stroke="url(#dial)" stroke-width="3.8"/>
+ <path d="M64 35v-5" stroke="#EDC48B" stroke-width="2.8" stroke-linecap="round"/>
+ <path d="M64 29C65 20 73 18 81 21C79 29 72 33 64 29Z" fill="#A8BC93"/>
+ <!-- 2:02: minute 12 degrees; hour 61 degrees. -->
+ <path d="M64 68L68.78 45.50M64 68L78.87 59.76" stroke="#F5E8C9" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/>
+ <circle cx="64" cy="68" r="2.8" fill="#F5E8C9"/>
+</svg>

@@ -1,0 +1,5 @@
+# Keep imported sketch bytes unchanged across platforms.
+firmware/JianClock/** -text
+*.bin binary
+*.blend binary
+*.stl binary

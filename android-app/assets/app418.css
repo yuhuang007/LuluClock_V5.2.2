@@ -1,0 +1,191 @@
+/* iOS 26-inspired live background refraction and independent scroll scenes. */
+.app418{isolation:isolate;--motion-ease:cubic-bezier(.2,.85,.18,1)}
+.app418::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at -12% 94%,#76966e29,transparent 43%),radial-gradient(ellipse at 90% 114%,#efb66f28,transparent 47%)}
+:root[data-theme=dark] .app418::before{background:radial-gradient(ellipse at -10% 93%,#8bab6b24,transparent 44%),radial-gradient(ellipse at 100% 110%,#c88f5420,transparent 44%)}
+.app418.app414 main{position:relative;overflow:hidden!important;padding:0!important;background:transparent}
+.app418 .route-page{position:absolute;inset:0;display:none;overflow-x:hidden;overflow-y:auto;padding:0 22px 112px;overscroll-behavior:contain;scrollbar-width:none;contain:layout paint}
+.app418 .route-page.is-active,.app418 .route-page.is-leaving{display:block}
+.app418 .route-page.is-leaving{pointer-events:none;z-index:1}
+.app418 .route-page.is-active{z-index:2}
+.app418 .route-page.is-leaving> :first-child{display:var(--outgoing-display,block)!important}
+.app418 .route-page>.panel{margin:0 auto;max-width:1120px}
+.glass-filter-defs{position:fixed;width:0;height:0;pointer-events:none}
+.app418.app414 nav{background:#ffffff16;border-color:#ffffff95;backdrop-filter:blur(.6px) url(#liquidNav418) saturate(1.2);-webkit-backdrop-filter:blur(1px) saturate(1.2);box-shadow:inset 0 1px 1px #ffffffd9,inset 0 -1px 1px #ffffff40,0 8px 28px #20302116;contain:layout;overflow:hidden;padding:8px;gap:0;height:76px;border-radius:28px}
+.app418.app414 nav::before{display:none!important}
+.app418.app414 nav::after{background:radial-gradient(ellipse at var(--light-x,18%) var(--light-y,0%),#ffffff61,transparent 57%);box-shadow:inset 1px 1px 0 #ffffffb0,inset -1px -1px 0 #ffffff33;border:1px solid #ffffff12;z-index:2}
+:root[data-theme=dark] .app418.app414 nav{background:#bbcdbb0c;border-color:#ffffff36;box-shadow:inset 0 1px 1px #ffffff55,inset 0 -1px 1px #ffffff14,0 10px 28px #0004}
+:root[data-theme=dark] .app418.app414 nav::after{background:radial-gradient(ellipse at var(--light-x,18%) var(--light-y,0%),#ffffff23,transparent 60%);box-shadow:inset 1px 1px 0 #ffffff36,inset -1px -1px 0 #ffffff12}
+.app418.app414 nav button{position:relative;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:22px 14px;align-content:center;justify-content:stretch;justify-items:center;gap:5px;padding:0;min-height:58px;text-align:center;background:transparent!important;transform:none!important}
+.app418.app414 nav button svg{position:static;width:22px;height:22px;transform:none!important;margin:0}
+.app418.app414 nav button span{display:block;width:100%;font-size:10px;line-height:14px;letter-spacing:0;text-align:center;white-space:nowrap}
+.app418 .nav-liquid-indicator{position:absolute;top:0;left:0;pointer-events:none;z-index:-1;border-radius:20px;border:1px solid #ffffff9c;background:linear-gradient(145deg,#ffffff5c,#ffebcc24 70%);box-shadow:inset 0 1px 2px #fff9,inset 0 -1px 1px #b6986e24,0 2px 9px #5b573112;transition:none!important}
+:root[data-theme=dark] .app418 .nav-liquid-indicator{background:linear-gradient(145deg,#ead5a629,#fbc97f12);border-color:#fff6d356;box-shadow:inset 0 1px 2px #fff4,inset 0 -1px 1px #fff1,0 2px 10px #0002}
+.app418 .canvas-edit{padding:14px 16px;border-radius:22px}
+.app418 .canvas-edit>summary{padding:0 0 14px;min-height:32px;font-weight:600}
+.app418 .canvas-edit .edit-grid{display:grid;grid-template-columns:142px minmax(0,1fr);align-items:center;gap:16px;margin:0!important}
+.app418 .direction-pad{display:grid;grid-template-columns:repeat(3,44px);grid-template-rows:repeat(3,44px);gap:5px;grid-template-areas:". up ." "left center right" ". down ."}
+.app418 .direction-pad button{width:44px;height:44px;padding:10px;border-radius:13px;border:1px solid var(--l-border);box-shadow:inset 0 1px 0 #ffffff50,0 2px 3px #00000008;display:grid;place-items:center}
+.app418 .direction-pad svg{width:22px;height:22px}
+.app418 [data-edit=up]{grid-area:up}.app418 [data-edit=left]{grid-area:left}.app418 [data-edit=center]{grid-area:center}.app418 [data-edit=right]{grid-area:right}.app418 [data-edit=down]{grid-area:down}
+.app418 [data-edit=left] svg{rotate:-90deg}.app418 [data-edit=right] svg{rotate:90deg}.app418 [data-edit=down] svg{rotate:180deg}
+.app418 .direction-pad [data-edit=center]{background:var(--l-accent-soft);color:var(--l-accent);border-color:transparent}
+.app418 .zoom-controls{display:flex;flex-direction:column;gap:12px}
+.app418 .zoom-controls button{display:flex;justify-content:center;align-items:center;gap:6px;min-height:44px;white-space:nowrap;font-size:11px;padding:8px}
+.app418 .zoom-controls svg{width:17px;height:17px;flex-shrink:0}
+.app418 .motion-setting{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px}
+.app418 .motion-setting label{display:grid;gap:6px}.app418 .motion-setting small{color:var(--l-muted)}
+.app418 .motion-setting select{max-width:46%;padding:10px;font-size:12px}
+.theme-curtain{position:fixed;inset:0;z-index:3000;pointer-events:none;background:var(--l-bg)}
+/* Explicit full motion stays available when HyperOS reports reduced motion. */
+:root[data-motion=full]::view-transition-group(root){animation:none!important}
+:root[data-motion=full]::view-transition-old(root){animation:none!important;mix-blend-mode:normal;z-index:1}
+:root[data-motion=full]::view-transition-new(root){animation:theme-ripple418 680ms cubic-bezier(.22,.7,.2,1) both!important;mix-blend-mode:normal;z-index:2}
+:root[data-motion=off]::view-transition-old(root){animation:none!important}
+@keyframes theme-ripple418{from{clip-path:circle(0px at var(--theme-x) var(--theme-y))}to{clip-path:circle(var(--theme-radius) at var(--theme-x) var(--theme-y))}}
+::view-transition{pointer-events:none}
+:root[data-motion=off]::view-transition-new(root){animation:none!important}
+.app418[data-motion=full] .nav-liquid-indicator{transition:none!important}
+.app418[data-motion=full] .segmented::before{transition:transform 400ms var(--motion-ease)!important}
+.app418[data-motion=full] .switch::before{transition:transform 300ms var(--motion-ease)!important}
+.app418[data-motion=off] *,.app418[data-motion=off] *::before,.app418[data-motion=off] *::after{transition:none!important;animation:none!important}
+@media(max-width:360px){.app418 .route-page{padding-left:17px;padding-right:17px}.app418 .canvas-edit{padding:12px}.app418 .canvas-edit .edit-grid{gap:10px}.app418 .zoom-controls button{gap:3px;padding:7px 4px}}
+@media(min-width:760px){
+ .app418.app414.app415{--rail-width:152px;--rail-gap:26px}
+ .app418.app414.app415 header{height:76px;padding:12px 24px}
+ .app418.app414.app415 .brand strong{font-size:19px}
+ .app418.app414.app415 .brand-mark,.app418.app414.app415 .brand-mark img{width:38px;height:38px}
+ .app418.app414.app415 main{height:calc(100dvh - 76px);margin-left:calc(var(--rail-width) + var(--rail-gap));width:calc(100% - var(--rail-width) - var(--rail-gap))}
+ .app418 .route-page{padding:8px 24px 28px}
+ .app418 .route-page>.route-view{max-width:1040px;padding:0}
+ .app418.app414.app415 .route-heading{margin:0 0 19px;height:42px}
+ .app418.app414.app415 .page-heading,.app418.app414.app415 .page-title{margin:2px 0 22px}
+ .app418.app414.app415 .page-heading h1,.app418.app414.app415 .page-title h1{font-size:28px;margin:0}
+ .app418.app414.app415 .page-heading p,.app418.app414.app415 .page-title p{margin:6px 0 0}
+ .app418.app414.app415 nav{top:84px;left:14px;height:244px;grid-template-rows:repeat(4,52px);gap:4px;padding:10px;border-radius:24px}
+ .app418.app414.app415 nav button{min-height:52px;height:52px;display:grid;grid-template-rows:1fr;align-content:center;justify-items:center;padding:0;gap:0}
+ .app418.app414.app415 nav button svg{position:absolute;left:14px;top:16px;width:20px;height:20px}
+ .app418.app414.app415 nav button span{font-size:13px;line-height:20px;letter-spacing:0;text-align:center;padding:0}
+ .app418 .nav-liquid-indicator{border-radius:16px}
+ .app418 #tabletSections{left:14px;top:346px;bottom:16px;padding:0 6px}
+ .app418 #tabletSections p{font-size:10px;margin:3px 8px 10px;letter-spacing:.4px}
+ .app418 #tabletSections button{font-size:11px;min-height:42px;padding:11px 10px;line-height:1.6}
+ .app418.app414.app415 .device-card{min-height:76px;margin-bottom:18px}
+ .app418.app414.app415 .connect-card{margin:8px auto}
+ .app418.app414.app415 #toast{left:calc(50% + 82px)}
+ .app418.app414.app415 #panel-timer .timer-face{width:100%;max-width:none;margin:0 0 18px;text-align:left;min-height:230px;padding:30px 34px;align-items:flex-start;border-radius:28px}
+ .app418.app414.app415 #timerClock{line-height:1.2;letter-spacing:-4px;margin:16px 0 18px;font-size:clamp(80px,9vw,126px)}
+ .app418 #timerStatus{line-height:1.6}
+}
+@media(min-width:1000px){
+ .app418.app414.app415{--rail-width:164px;--rail-gap:24px}
+ .app418.app414.app415 #panel-draw.active{display:grid;grid-template-columns:minmax(0,1fr) 234px;gap:16px 22px;align-content:start}
+ .app418.app414.app415 #panel-draw>.page-heading,.app418.app414.app415 #panel-draw>.creation-tools{grid-column:1/-1;margin-bottom:0}
+ .app418.app414.app415 #panel-draw>.canvas-card{grid-column:1;grid-row:3/span 4;align-self:start;min-width:0;padding:17px}
+ .app418.app414.app415 #panel-draw>.canvas-edit{grid-column:2;grid-row:3;margin:0;padding:16px}
+ .app418.app414.app415 #panel-draw #uploadProgress{grid-column:2;grid-row:4;margin:0}
+ .app418.app414.app415 #sendDrawing{grid-column:2;grid-row:5;align-self:start;margin:0;font-size:12px;line-height:1.6}
+ .app418.app414.app415 #panel-draw>.note{grid-column:2;grid-row:6;margin:0}
+ .app418.app414.app415 .canvas-edit .edit-grid{display:flex;flex-direction:column;gap:17px}
+ .app418 .zoom-controls{flex-direction:row;width:100%;gap:10px}.app418 .zoom-controls button{flex:1}
+ .app418.app414.app415 #panel-timer.active{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:auto auto auto;gap:14px 24px;align-items:start;align-content:start}
+ .app418.app414.app415 #panel-timer>.page-heading{grid-column:1/-1;margin-bottom:8px}
+ .app418.app414.app415 #panel-timer>.timer-face{grid-column:1;grid-row:2/span 2;min-height:280px;display:flex;flex-direction:column;justify-content:center;margin:0}
+ .app418.app414.app415 #panel-timer>.segmented{grid-column:2;grid-row:2;margin:0}
+ .app418.app414.app415 #panel-timer>.segment-pane{grid-column:2;grid-row:3;min-width:0}
+}
+@media(min-width:1100px){
+ .app418.app414.app415 main{padding:0}
+ .app418 .route-page{padding:10px 28px 32px}
+ .app418.app414.app415 header{padding:12px 28px}
+ .app418.app414.app415 .home-time-area .hero{min-height:300px}
+ .app418.app414.app415 .home-time-area .clock{margin:42px 0 32px}
+ .app418.app414.app415 .home-action-area .action{min-height:154px}
+ .app418.app414.app415 .home-action-area .action b{margin-top:49px}
+}
+@media(min-width:1600px){.app418 .route-page{padding-left:36px;padding-right:36px}}
+@supports not(backdrop-filter:url(#liquidNav418)){.app418.app414 nav{backdrop-filter:blur(1px) saturate(1.2)}}
+/* Stable outgoing geometry and temporary compositor layers. */
+.app418 .route-page.is-animating{will-change:transform,opacity}
+.app418 .route-page.is-leaving> :first-child{grid-template-columns:var(--outgoing-columns)!important;grid-template-rows:var(--outgoing-rows)!important;row-gap:var(--outgoing-rowGap)!important;column-gap:var(--outgoing-columnGap)!important}
+.app418 .maintenance-heading{display:flex;align-items:center;justify-content:space-between;padding:17px 0 12px;gap:12px}
+.app418 .maintenance-heading h2{font-size:13px;margin:0;font-weight:600}
+.app418 .maintenance-heading p{font-size:10px;margin:0;color:var(--l-muted)}
+.app418 .settings-maintenance{padding:0 16px 3px}
+.app418 .settings-maintenance .menu-row{min-height:64px}
+.app418 .theme-toggle{min-width:44px;min-height:44px}
+@media(min-width:1100px){
+ .app418.app414.app415 #panel-settings.active{grid-template-rows:auto auto auto auto;gap:18px 24px}
+ .app418 #panel-settings>.page-title{margin-bottom:0}
+ .app418 #panel-settings>.settings-maintenance{grid-column:1;grid-row:3;margin:0}
+ .app418 #panel-settings>.menu-group:last-child{grid-column:1;grid-row:4;margin:0}
+ .app418 #panel-settings>.menu-group:empty{display:none}
+}
+/* Liquid Glass is limited to navigation: refractive edges, clear center, moving light. */
+.app418.app414 nav{touch-action:none;background:linear-gradient(130deg,#ffffff24,#ffffff08 62%,#ffdfaa17);border-color:#ffffff8c;box-shadow:inset 0 1.5px 1px #ffffffdd,inset 0 -1px 1px #ffffff5c,0 10px 28px #28362218}
+.app418.app414 nav::after{background:linear-gradient(125deg,#ffffff35,transparent 26%,transparent 78%,#ffffff15);box-shadow:inset 1px 0 0 #fff8,inset -1px 0 0 #fff4}
+.app418 .glass-glint{position:absolute;top:0;left:0;width:88px;height:140px;background:radial-gradient(ellipse,#fff8,transparent 68%);pointer-events:none;z-index:1;opacity:0;transition:opacity 180ms!important}
+.app418 nav.is-touching .glass-glint{opacity:.65;will-change:transform,opacity}
+.app418.app414 nav button{z-index:3}
+.app418 .nav-liquid-indicator{z-index:0;background:linear-gradient(155deg,#ffffff70,#ffffff1a 58%,#f5d5a729);box-shadow:inset 0 1.5px 1px #fffc,inset 0 -1px 1px #c4a77b3b,0 2px 7px #55451e12}
+.app418 nav.is-dragging .nav-liquid-indicator{transition:none!important;scale:1.05 .96;will-change:transform}
+:root[data-theme=dark] .app418.app414 nav{background:linear-gradient(135deg,#d3e0bd0d,#8d998208 70%,#e7c9950b);border-color:#e9efd143;box-shadow:inset 0 1.5px 1px #ffffff66,inset 0 -1px 1px #ffffff26,0 10px 28px #0004}
+:root[data-theme=dark] .app418.app414 nav::after{background:linear-gradient(125deg,#ffffff12,transparent 26%,transparent 78%,#ffffff08);box-shadow:inset 1px 0 0 #fff3,inset -1px 0 0 #fff2}
+:root[data-theme=dark] .app418 .nav-liquid-indicator{background:linear-gradient(145deg,#f6e3af38,#d3d9b910 65%,#f7bf6724);border-color:#fff0c168;box-shadow:inset 0 1.5px 1px #fff7,inset 0 -1px 1px #b79b6038,0 2px 8px #0003}
+:root[data-motion=full] .app418 dialog[open]{animation:dialog-in415 280ms var(--motion-ease)!important}
+.app418 :is(button,select,input):focus-visible{outline:2px solid var(--l-accent);outline-offset:3px}
+@media(max-width:360px){.app418 .theme-toggle{min-width:30px}}
+@media(min-width:760px){.app418 nav.is-dragging .nav-liquid-indicator{scale:.97 1.04}}
+.app418 #panel-settings>.menu-group:empty{display:none}
+/* Readable labels over the moving material. */
+.app418.app414 nav button{color:#626b5c}
+.app418.app414 nav button.active{color:#a24a1c}
+:root[data-theme=dark] .app418.app414 nav button{color:#bdc5b4}
+:root[data-theme=dark] .app418.app414 nav button.active{color:#ffd09a}
+@media(max-width:759px){.app418.app414 nav button{grid-template-rows:22px 16px}.app418.app414 nav button span{font-size:11px;line-height:16px}}
+
+/* Clear center, refraction at the edge; color wash must not turn into frost. */
+.app418.app414 nav{background:linear-gradient(130deg,#ffffff10,#ffffff03 62%,#ffdfaa08)}
+.app418.app414 nav::after{background:linear-gradient(125deg,#ffffff18,transparent 23%,transparent 82%,#ffffff09)}
+.app418 .nav-liquid-indicator{background:linear-gradient(155deg,#ffffff35,#ffffff06 58%,#f5d5a712);transform-origin:center;scale:1;transition:none!important}
+.app418 .nav-liquid-indicator.is-flowing{will-change:transform,border-radius}
+:root[data-theme=dark] .app418.app414 nav{background:linear-gradient(135deg,#d3e0bd06,#8d998203 70%,#e7c99505)}
+:root[data-theme=dark] .app418 .nav-liquid-indicator{background:linear-gradient(145deg,#f6e3af20,#d3d9b905 65%,#f7bf6711)}
+
+/* Compact creation page; optional dimensions and dedicated test gallery. */
+.drawing-dimensions{padding:0 4px 8px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.drawing-dimensions>#drawingSize{margin:10px 0;font-size:11px}
+.drawing-size-options{font-size:11px;color:var(--l-muted);max-width:100%}
+.drawing-size-options>summary{cursor:pointer;padding:10px 0;min-height:40px}
+.drawing-size-options[open]{flex-basis:100%}
+.drawing-size-fields{display:flex;gap:20px;flex-wrap:wrap;align-items:center;padding:4px 0}
+.drawing-size-fields label{display:flex;align-items:center;gap:8px}
+.drawing-size-fields input{width:78px;min-width:0}
+.app418 .patterns .pattern-size{display:block;font-size:12px;font-weight:400;color:var(--l-muted);margin-top:8px}
+.app418 .patterns .pattern-action{display:block;font-size:10px;font-weight:400;color:var(--l-muted);margin-top:6px}
+.app418 .patterns .pattern-square-icon{font-size:29px;margin:0}
+
+/* Separate primary and secondary timer actions on phones and tablets. */
+.app418 #panel-timer #startTimer + #saveTimerPreset,
+.app418 #panel-timer #savePomo + #startPomo {
+  margin-top: 14px;
+}
+
+/* Explicit settings placement survives newly inserted feature groups. */
+@media(min-width:1100px){
+ .app418.app414.app415 #panel-settings.active{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;gap:18px 24px}
+ .app418.app414.app415 #panel-settings>.menu-group,
+ .app418.app414.app415 #panel-settings>.settings-maintenance{grid-column:auto;grid-row:auto;margin:0;min-width:0}
+ .app418.app414.app415 #panel-settings>.page-title{grid-column:1/-1;grid-row:auto}
+}
+.app418 .form-row{gap:14px;min-width:0;flex-wrap:wrap}
+.app418 .form-row :is(input:not([type=checkbox]),select){max-width:100%;min-width:0}
+.app418 :is(.hint,.menu-row small,.device-status,.device-card-info){overflow-wrap:anywhere}
+.app418 .menu-row>span{min-width:0}
+.app418 #saveDailyPolicy + #readDailyPolicy,
+.app418 #saveDisplayPolicy + #readDisplayPolicy{display:block;margin-top:14px;min-height:44px}
+.app418 #panel-daily>.segment-pane,.app418 #panel-display-settings>.feature-card{max-width:760px;margin-inline:auto}
+@media(max-width:380px){
+ .app418 .route-page{padding-left:14px;padding-right:14px}
+ .app418 .canvas-edit .edit-grid{gap:10px}
+ .app418 .form-row :is(input[type=time],input[type=number],select){flex-shrink:1}
+}

@@ -1,0 +1,228 @@
+/* Lulu: a restrained cream / citrus palette, shared across every task page. */
+:root{
+ color-scheme:light;--l-bg:#faf7f0;--l-surface:#fffdf9;--l-soft:#f3eee4;
+ --l-text:#33372f;--l-muted:#74796e;--l-faint:#8a8f82;--l-border:#e9e5dc;
+ --l-accent:#bc5620;--l-accent-fill:#c76027;--l-accent-soft:#f9eadc;--l-on-accent:#fffaf4;
+ --l-success:#4f795f;--l-danger:#b04a3c;--l-danger-bg:#f9e9e2;
+ --l-hero:#f3e8d4;--l-hero-text:#554433;--l-shadow:0 4px 20px #68523105;
+ --l-nav:#faf7f0f5;--canvas-grid:#e8e3d7;--canvas-ink:#895426;
+ --device-shell:#fff9e9;--device-edge:#d4ba85;
+}
+:root[data-theme=dark]{
+ color-scheme:dark;--l-bg:#181a17;--l-surface:#232620;--l-soft:#2c3028;
+ --l-text:#f0eee6;--l-muted:#b0b5a7;--l-faint:#969d8e;--l-border:#383d32;
+ --l-accent:#f2b16b;--l-accent-fill:#edac65;--l-accent-soft:#3d3022;--l-on-accent:#2c251c;
+ --l-success:#9ac5a1;--l-danger:#f2a092;--l-danger-bg:#3c2823;
+ --l-hero:#363025;--l-hero-text:#f4dfba;--l-shadow:none;
+ --l-nav:#181a17f5;--canvas-grid:#373d31;--canvas-ink:#f1c783;
+ --device-shell:#393c2d;--device-edge:#969268;
+}
+.app413{
+ --paper:var(--l-bg);--ink:var(--l-text);--muted:var(--l-muted);--green:var(--l-accent);
+ --white:var(--l-surface);--line:var(--l-border);--orange:var(--l-accent);--lime:var(--l-hero-text);
+ background:var(--l-bg);color:var(--l-text);font-size:14px;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+}
+.app413 header{height:80px;padding:15px 20px;gap:12px;background:var(--l-bg);z-index:20}
+.app413 .brand{gap:8px;flex-shrink:0}
+.app413 .brand-mark{display:block;width:28px;height:32px;font-size:0;color:var(--l-accent)}
+.app413 .brand-mark svg{width:32px;height:32px;display:block}
+.app413 .brand strong{font-size:20px;letter-spacing:2px;font-weight:700;line-height:1.1}
+.app413 .brand small{font-size:10px;letter-spacing:2px;margin-top:5px;color:var(--l-muted)}
+.app413 .header-tools{display:flex;align-items:center;gap:6px;min-width:0}
+.app413 .link-chip{background:var(--l-surface);border-color:var(--l-border);font-size:11px;min-height:44px;padding:8px 11px;white-space:nowrap;gap:6px}
+.app413 .link-chip i.connected{background:var(--l-success)}
+.app413 .theme-toggle{display:grid;place-items:center;width:40px;height:44px;min-height:44px;border-radius:50%;background:transparent;color:var(--l-muted);flex-shrink:0;padding:10px}
+.app413 .theme-toggle svg{width:20px;height:20px}
+.app413 .stop-button{position:static;transform:none;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1px;flex-shrink:0;
+ width:44px;height:46px;min-height:44px;padding:4px;background:var(--l-danger-bg);color:var(--l-danger);border:1px solid transparent;border-radius:14px;box-shadow:none;font-size:9px}
+.app413 .stop-button svg{width:20px;height:20px}.app413 .stop-button span{font-size:9px;line-height:1.2}
+.app413 .stop-button:disabled{opacity:.45}.app413 .stop-button.is-running{border-color:var(--l-danger)}
+.app413 .safety-bar{display:none}
+.app413 main{height:calc(100vh - 156px);height:calc(100dvh - 156px);padding:0 20px 24px;scrollbar-width:none;scroll-behavior:auto}
+.app413 main::-webkit-scrollbar{display:none}
+.app413 .panel{transform-origin:50% 10%;min-width:0}
+.app413 h1{color:var(--l-text);font-size:26px;font-weight:650;letter-spacing:-.5px}
+.app413 h2{color:var(--l-text);font-size:15px;font-weight:600}
+.app413 p{color:var(--l-muted);font-size:12px;line-height:1.8}
+.app413 .hint{font-size:12px;line-height:1.8;color:var(--l-muted)}
+.app413 button{transition:background-color .18s,color .18s,border-color .18s,transform .16s;min-height:44px}
+.app413 button:active{transform:scale(.975)}
+.app413 button:focus-visible,.app413 input:focus-visible,.app413 select:focus-visible,.app413 summary:focus-visible{outline:2px solid var(--l-accent);outline-offset:3px}
+.app413 .primary{background:var(--l-accent-fill);color:var(--l-on-accent);border-radius:16px;min-height:50px;font-weight:600;box-shadow:0 4px 10px #a25b1410}
+.app413 .secondary{color:var(--l-text);background:var(--l-surface);border-color:var(--l-border);border-radius:13px;font-size:13px}
+.app413 .text-button{color:var(--l-accent);font-size:12px}
+.app413 .feature-card,.app413 .settings,.app413 .install-card,.app413 .canvas-card{background:var(--l-surface);border-color:var(--l-border);border-radius:20px;box-shadow:var(--l-shadow);padding:18px;margin-bottom:16px}
+.app413 .route-heading{height:44px;margin:0 0 18px}
+.app413 .route-heading h1{font-size:20px;color:var(--l-text);font-weight:600}
+.app413 .back-button{min-width:44px;min-height:44px;padding:0;font-size:27px;color:var(--l-text)}
+.app413 #calBack{color:var(--l-muted);font-size:13px;min-height:44px}
+.app413 .page-heading,.app413 .page-title{margin:6px 0 22px}
+.app413 .page-heading p,.app413 .page-title p{font-size:12px;line-height:1.6;color:var(--l-muted);margin-top:6px}
+.app413 .device-card{border:0;background:transparent;box-shadow:none;padding:0 2px 0;margin:2px 0 18px;gap:12px;min-height:86px}
+.app413 .device-art{height:84px;width:70px;background:transparent;border-radius:0;color:var(--l-accent)}
+.app413 .device-art svg{height:84px;width:70px;stroke:none;fill:initial}
+.app413 .device-card-info>small{font-size:9px;letter-spacing:1.6px;color:var(--l-faint)}
+.app413 .device-card h1{font-size:19px;margin:5px 0 7px;letter-spacing:0}
+.app413 #homeConnection{color:var(--l-muted);font-size:11px;margin-bottom:7px}
+.app413 #homeConnection.is-connected{color:var(--l-success)}
+.app413 .version-chip{background:var(--l-soft);color:var(--l-muted);font-size:10px;border-radius:7px;padding:4px 7px;min-height:26px;max-width:100%;white-space:normal}
+.app413 .icon-button{color:var(--l-muted);min-height:44px;min-width:36px}
+.app413 .hero{background:var(--l-hero);color:var(--l-hero-text);border-radius:24px;padding:21px 22px 19px;min-height:178px;margin-bottom:22px}
+.app413 .hero .eyebrow{color:var(--l-hero-text);font-size:11px;letter-spacing:1px;opacity:.8}
+.app413 .hero .clock{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:68px;font-weight:350;letter-spacing:-3px;font-variant-numeric:tabular-nums;line-height:1.05;margin:17px 0 16px;color:var(--l-hero-text)}
+.app413 .hero .clock span{color:var(--l-hero-text);opacity:.55}
+.app413 .mode-pill{background:var(--l-surface);color:var(--l-accent)!important;border:0;font-size:10px;padding:6px 9px;opacity:.9;letter-spacing:0}
+.app413 .hero-bottom{color:var(--l-hero-text);font-size:10px;opacity:.8;gap:8px;align-items:flex-end}
+.app413 #workLabel{max-width:49%;text-align:right;overflow-wrap:anywhere}
+.app413 .hero-citrus{width:92px;height:92px;position:absolute;right:17px;top:51px;transform:rotate(-13deg);opacity:.9;pointer-events:none}
+.app413 .hero-citrus svg{width:100%;height:100%}
+.app413 .section-title{margin:19px 0 12px}
+.app413 .section-title h2{font-size:14px;font-weight:600;letter-spacing:.2px}
+.app413 .action-grid{gap:12px;margin:0 0 14px}
+.app413 .action{background:var(--l-surface);border-color:var(--l-border);border-radius:18px;min-height:94px;padding:16px}
+.app413 .action-icon{color:var(--l-accent);right:13px;top:14px;font-size:0}
+.app413 .action-icon svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.app413 .action b{color:var(--l-text);font-size:14px;font-weight:550;margin:1px 0 12px}
+.app413 .action small{font-size:10px;color:var(--l-muted)}
+.app413 .compact-setting{background:var(--l-surface);border-color:var(--l-border);border-radius:18px;margin-bottom:18px;padding:0 16px}
+.app413 .compact-setting .setting{min-height:70px;padding:15px 0}
+.app413 .setting b{font-size:13px;color:var(--l-text)}.app413 .setting small{color:var(--l-muted);font-size:10px}
+.app413 .switch{width:39px;height:23px;background:var(--l-border);padding:3px}
+.app413 .switch:before{background:#fffdf7;width:17px;height:17px}
+.app413 .setting input:checked+.switch{background:var(--l-accent-fill)}
+.app413 .setting input:checked+.switch:before{transform:translateX(16px)}
+.app413 .setting:focus-within .switch{outline:2px solid var(--l-accent);outline-offset:3px}
+.app413 .menu-group{background:var(--l-surface);border-color:var(--l-border);border-radius:19px;margin-bottom:16px}
+.app413 .menu-row{background:var(--l-surface);padding:16px;min-height:72px;gap:13px}
+.app413 .menu-row+.menu-row{border-color:var(--l-border)}
+.app413 .menu-icon{background:var(--l-accent-soft);color:var(--l-accent);width:35px;height:35px;border-radius:12px}
+.app413 .menu-icon svg{width:20px;height:20px;stroke-width:1.5}
+.app413 .menu-row strong{font-size:13px;font-weight:550;color:var(--l-text)}
+.app413 .menu-row small{font-size:11px;color:var(--l-muted);margin-top:5px}
+.app413 .row-arrow{color:var(--l-faint);font-size:20px}
+.app413 #panel-settings .menu-row{min-height:61px;padding:12px 15px}
+.app413 #panel-settings .menu-icon{width:32px;height:32px}
+.app413 #panel-settings .menu-row small{font-size:10px;line-height:1.4;margin-top:4px}
+.app413 #panel-settings .menu-group{margin-bottom:16px}
+.app413 #panel-settings .page-title{margin-bottom:22px}
+.app413 #panel-settings .page-title p{font-size:12px}
+.app413 #panel-settings .settings-preferences .menu-row{min-height:52px;padding:9px 15px}
+.app413 .settings-preferences .menu-row small{display:none}
+.app413 .settings-maintenance{border:1px solid var(--l-border);border-radius:17px;background:var(--l-surface);margin-bottom:16px;padding:0 16px}
+.app413 .settings-maintenance>summary{padding:14px 0;font-size:13px;min-height:60px;color:var(--l-text);cursor:pointer}
+.app413 .settings-maintenance>summary small{font-size:10px;color:var(--l-muted);margin-left:14px}
+.app413 .settings-maintenance .menu-group{border:0;border-radius:0;margin:0!important}
+.app413 .settings-maintenance .menu-row{padding-left:0!important;padding-right:0!important}
+.app413 nav{background:var(--l-nav);border-color:var(--l-border);height:76px;overflow:hidden;padding:8px 14px max(8px,env(safe-area-inset-bottom));isolation:isolate;gap:0;backdrop-filter:blur(16px)}
+.app413 nav::before{content:"";position:absolute;z-index:-1;left:14px;top:10px;width:calc((100% - 28px)/4);height:52px;border-radius:18px;background:var(--l-accent-soft);transform:translateX(calc(var(--nav-index,0)*100%));transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.app413 nav button{background:transparent;border-radius:18px;color:var(--l-faint);gap:4px;padding:5px;min-height:52px;min-width:0}
+.app413 nav button.active{background:transparent;color:var(--l-accent)}
+.app413 nav button svg{width:22px;height:22px;stroke-width:1.5;transition:transform .2s}
+.app413 nav button.active svg{transform:translateY(-1px)}
+.app413 nav button span{font-size:10px;letter-spacing:1px}
+.app413 footer{color:var(--l-faint);font-size:10px;margin:22px 0 2px;letter-spacing:1px}
+.app413 #toast{bottom:92px;background:var(--l-text);color:var(--l-bg);border-radius:16px;font-size:12px;box-shadow:0 6px 24px #0002;z-index:100}
+.app413 .connect-card{padding:26px 22px 20px;background:var(--l-surface);border-color:var(--l-border);border-radius:24px;margin-top:9px;box-shadow:var(--l-shadow)}
+.app413 .connect-card .eyebrow{color:var(--l-accent);font-size:11px;letter-spacing:1px}
+.app413 .connect-card h1{font-size:25px;margin:15px 0 12px;font-weight:600}
+.app413 .connect-card p{font-size:12px;margin-bottom:23px}
+.app413 #deviceList button{background:var(--l-soft);border-color:var(--l-border);color:var(--l-text);padding:16px 12px;border-radius:14px;overflow-wrap:anywhere;font-size:11px}
+.app413 .task-card{background:var(--l-accent-soft);border-color:var(--l-border);color:var(--l-text);border-radius:15px;padding:15px;margin-bottom:16px}
+.app413 .task-card progress{accent-color:var(--l-accent-fill);height:5px}
+.app413 .creation-tools{gap:9px;margin-bottom:16px}
+.app413 .creation-tools button{background:var(--l-surface);border-color:var(--l-border);border-radius:13px;color:var(--l-text);font-size:12px}
+.app413 .canvas-card{padding:13px;border-radius:20px}
+.app413 .canvas-meta{color:var(--l-muted);font-size:10px;margin:2px 3px 13px}
+.app413 #drawingCanvas{background:var(--l-bg);border-radius:12px}
+.app413 .canvas-tools button{background:var(--l-soft);color:var(--l-muted);border-radius:10px;min-height:40px;padding:8px 12px}
+.app413 .canvas-edit{background:var(--l-surface);border-color:var(--l-border);border-radius:15px;padding:0 15px;margin-bottom:16px}
+.app413 details>summary{color:var(--l-muted);min-height:46px;font-size:12px}
+.app413 .edit-grid button,.app413 .nudge button,.app413 .favorite-item button{background:var(--l-soft);border-color:var(--l-border);color:var(--l-text);border-radius:9px}
+.app413 .note p{font-size:11px;color:var(--l-muted)}
+.app413 .segmented{background:var(--l-soft);border-radius:14px;padding:4px;gap:4px;margin-bottom:18px}
+.app413 .segmented button{color:var(--l-muted);min-height:40px;border-radius:11px;font-size:12px}
+.app413 .segmented button[aria-selected=true]{background:var(--l-surface);color:var(--l-accent);box-shadow:0 2px 6px #0000000b}
+.app413 .timer-face{background:var(--l-hero);color:var(--l-hero-text);border:0;border-radius:24px;padding:30px 14px 26px;margin-bottom:18px}
+.app413 .timer-face .eyebrow{color:var(--l-hero-text);opacity:.7;font-size:10px;letter-spacing:2px}
+.app413 #timerClock{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:72px;font-weight:350;font-variant-numeric:tabular-nums;color:var(--l-hero-text);line-height:1.5;letter-spacing:-3px}
+.app413 #timerStatus{color:var(--l-hero-text);font-size:12px;opacity:.8}
+.app413 .presets{gap:8px}.app413 .presets button{background:var(--l-surface);border-color:var(--l-border);color:var(--l-muted);font-size:11px;min-height:44px;border-radius:13px}
+.app413 .presets button.selected{background:var(--l-accent-soft);border-color:var(--l-accent);color:var(--l-accent)}
+.app413 .timer-input{color:var(--l-muted);font-size:13px;margin:18px 0}
+.app413 input,.app413 select,.app413 textarea{background:var(--l-bg);color:var(--l-text);border-color:var(--l-border);border-radius:11px;min-height:40px;font-size:13px}
+.app413 input::placeholder,.app413 textarea::placeholder{color:var(--l-faint)}
+.app413 input[type=checkbox]{accent-color:var(--l-accent-fill);min-height:0}
+.app413 .form-row{border-color:var(--l-border);font-size:13px;min-height:56px;padding:12px 0}
+.app413 .form-row select{color:var(--l-text);max-width:62%}
+.app413 .week-days{gap:11px}.app413 .week-days label{color:var(--l-muted);font-size:12px}
+.app413 .about-card{background:var(--l-surface);border-color:var(--l-border);border-radius:23px;padding:26px 20px 10px}
+.app413 .about-logo{width:68px;height:68px;padding:4px;border-radius:20px;background:var(--l-accent-soft);display:inline-flex;align-items:center;justify-content:center}
+.app413 .about-logo svg{width:60px;height:60px}
+.app413 .about-card h2{font-size:21px;margin:14px 0 4px}
+.app413 .about-card>p{color:var(--l-muted);margin-bottom:22px;font-size:12px}
+.app413 .info-pair{border-color:var(--l-border);padding:17px 0;font-size:12px}.app413 .info-pair span{color:var(--l-muted)}
+.app413 #deviceInfo,.app413 .compare-note{color:var(--l-muted);font-size:11px}
+.app413 .install-card .section-title{margin:0}.app413 .install-card>p{color:var(--l-muted);font-size:11px}
+.app413 .pose-grid button{background:var(--l-soft);border-color:var(--l-border);border-radius:14px;padding:13px;color:var(--l-text)}
+.app413 .pose-grid button.active{background:var(--l-accent-soft);border-color:var(--l-accent);color:var(--l-accent)}
+.app413 .pose-grid strong{color:var(--l-accent)}.app413 .pose-grid b{color:var(--l-muted);font-size:10px}
+.app413 .cal-fields label{background:var(--l-surface);border-color:var(--l-border);border-radius:14px;color:var(--l-muted);padding:12px}
+.app413 .cal-fields input{background:var(--l-bg);color:var(--l-text)}
+.app413 .nudge button{min-height:36px;font-size:11px;padding:4px}
+.app413 .utility-row button,.app413 .patterns button{background:var(--l-surface);border-color:var(--l-border);color:var(--l-accent);border-radius:15px}
+.app413 #otaStatus{background:var(--l-accent-soft);color:var(--l-accent);border-radius:15px;font-size:13px;padding:16px}
+.app413 #otaFile{font-size:11px;color:var(--l-muted);line-height:1.7}
+.app413 #otaProgress,.app413 progress{accent-color:var(--l-accent-fill)}
+.app413 #rgbMaintenance{border-color:var(--l-border)}
+.app413 #wifiCard{background:transparent;border:0;padding:0;box-shadow:none}
+.app413 .network-banner{background:var(--l-surface);border-color:var(--l-border);border-radius:19px;padding:17px;margin-bottom:24px}
+.app413 #wifiStatus{background:transparent;color:var(--l-text);padding:0;font-size:12px}
+.app413 .network-list{background:var(--l-surface);border-color:var(--l-border);border-radius:19px}
+.app413 .network-row{background:var(--l-surface);min-height:80px;padding:18px 16px}
+.app413 .network-row+.network-row{border-color:var(--l-border)}
+.app413 .network-row strong{color:var(--l-text);font-size:13px}.app413 .network-row small{color:var(--l-muted);font-size:11px}
+.app413 .wifi-glyph{color:var(--l-accent)}
+.app413 .small-button{background:var(--l-accent-soft);color:var(--l-accent);border-radius:12px;min-height:40px;font-size:11px;padding:9px 12px}
+.app413 dialog{background:var(--l-surface);color:var(--l-text);border:1px solid var(--l-border);border-radius:25px;padding:22px;box-shadow:0 20px 70px #0004;max-height:calc(100dvh - 32px);overflow:auto}
+.app413 dialog::backdrop{background:#11180f77;backdrop-filter:blur(5px)}
+.app413 dialog[open]{animation:dialog-in413 .2s cubic-bezier(.2,.8,.2,1)}
+.app413 #wifiDialogClose{color:var(--l-muted)}
+.app413 #wifiDialogStop{color:var(--l-danger);margin-top:6px}
+.app413 #soundCard>p.hint:not(#soundStatus){font-size:11px}
+.app413 #soundStatus,.app413 #boardStatus,.app413 #calLiveStatus{color:var(--l-accent)}
+.app413 .appearance-intro{text-align:center;margin:14px 0 27px}
+.app413 .appearance-symbol{display:inline-grid;place-items:center;color:var(--l-accent);background:var(--l-accent-soft);border-radius:22px;width:68px;height:68px;margin-bottom:16px}
+.app413 .appearance-symbol svg{width:31px;height:31px}
+.app413 .appearance-intro h2{font-size:22px;margin:0 0 7px;font-weight:550}.app413 .appearance-intro p{font-size:12px;margin:0}
+.app413 .theme-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.app413 .theme-choice{position:relative;background:var(--l-surface);border:1px solid var(--l-border);padding:10px 9px 14px;border-radius:17px;text-align:left;min-width:0}
+.app413 .theme-choice[aria-pressed=true]{border-color:var(--l-accent);box-shadow:0 0 0 1px var(--l-accent)}
+.app413 .theme-choice strong{display:block;font-size:12px;font-weight:550;margin:14px 0 5px}.app413 .theme-choice small{display:block;color:var(--l-muted);font-size:9px;white-space:nowrap}
+.app413 .choice-check{position:absolute;right:9px;top:9px;width:18px;height:18px;border-radius:50%;background:var(--l-accent-fill);color:var(--l-on-accent);font-size:11px;display:none;place-items:center}
+.app413 .theme-choice[aria-pressed=true] .choice-check{display:grid}
+.app413 .theme-preview{display:block;height:115px;border-radius:9px;padding:14px 9px 9px;background:#f6f1e5;border:1px solid #e4dfd4;overflow:hidden}
+.app413 .theme-preview i{display:block;background:#fffdfa;border-radius:4px;height:16px;margin-bottom:8px}
+.app413 .theme-preview i:first-child{background:#edce91;height:34px}
+.app413 .preview-dark{background:#1b1e18;border-color:#373b30}.app413 .preview-dark i{background:#30352b}.app413 .preview-dark i:first-child{background:#695032}
+.app413 .preview-system{background:linear-gradient(90deg,#f6f1e5 50%,#1b1e18 50%);border-color:var(--l-border)}
+.app413 .preview-system i{background:linear-gradient(90deg,#fffdfa 50%,#30352b 50%)}.app413 .preview-system i:first-child{background:linear-gradient(90deg,#edce91 50%,#695032 50%)}
+.app413 .appearance-note{margin:20px 3px 28px;font-size:11px}
+.app413 .motion-setting{background:var(--l-surface);border:1px solid var(--l-border);padding:17px;border-radius:17px}
+.app413 .motion-setting>span{display:grid;grid-template-columns:27px 1fr;column-gap:8px;align-items:center}
+.app413 .motion-setting svg{width:20px;height:20px;grid-row:span 2;color:var(--l-accent)}
+.app413 .motion-setting strong{font-size:12px;font-weight:550}.app413 .motion-setting small{font-size:10px;color:var(--l-muted);margin-top:5px;line-height:1.5}
+@keyframes dialog-in413{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:360px){
+ .app413 header{padding-left:14px;padding-right:14px;gap:8px}.app413 .header-tools{gap:3px}
+ .app413 main{padding-left:15px;padding-right:15px}.app413 .link-chip{padding:8px;font-size:10px}
+ .app413 .theme-toggle{width:36px;padding:8px}.app413 .brand{gap:5px}.app413 .brand strong{font-size:18px}
+ .app413 .hero{padding:19px;min-height:170px}.app413 .hero .clock{font-size:61px;letter-spacing:-3px}
+ .app413 .hero-citrus{width:70px;height:70px;right:12px;top:63px}
+ .app413 .device-art{width:62px}.app413 .device-card{gap:9px}.app413 .device-card h1{font-size:18px}
+ .app413 .theme-choices{gap:8px}.app413 .theme-choice{padding:8px 7px 12px}.app413 .theme-preview{height:101px;padding:13px 7px 7px}
+ .app413 .theme-choice small{font-size:8px}.app413 .form-row{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ .app413 *,.app413 *::before,.app413 *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}

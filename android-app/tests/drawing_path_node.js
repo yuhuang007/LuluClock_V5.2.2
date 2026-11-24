@@ -1,0 +1,15 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict'),path=require('path');
+const root=path.join(__dirname,'../assets'),ctx={};ctx.window=ctx;vm.createContext(ctx);
+for(const f of ['hanzi-medians.js','hanzi-text.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),ctx);
+const app=fs.readFileSync(path.join(root,'app.js'),'utf8');vm.runInContext('let strokes=[];'+app.slice(app.indexOf('function simplify('),app.indexOf("$('undoDrawing')")),ctx);
+ctx.points=[{x:20,y:20},{x:21,y:20.22},{x:22,y:20}];
+assert.equal(vm.runInContext('simplify(points,.3).length',ctx),2);assert.equal(vm.runInContext('simplify(points,.12).length',ctx),3);
+const sample='你好世界';
+ctx.raw=ctx.HanziText.generate(sample,()=>{throw Error('unexpected fallback');}).strokes;
+vm.runInContext('strokes=raw.map(s=>simplify(s,.12));',ctx);
+const preview=vm.runInContext('strokes.flatMap(s=>s.map((p,i)=>({x:Math.round(p.x*100),y:Math.round(p.y*100),lit:i?1:0})))',ctx);
+const sent=ctx.flattenDrawing();assert.deepEqual(sent,preview);
+const strokeCount=[...sample].flatMap(c=>ctx.HanziMedians[c]).length;
+assert.equal(sent.filter(p=>!p.lit).length,strokeCount);
+const result={status:'passed',coverage:['0.22mm short bend retained','preview and transmitted points match after centi-mm quantization','pen-up boundaries preserved'],strokes:strokeCount,points:sent.length,physical_device_tested:false};
+console.log(JSON.stringify(result));

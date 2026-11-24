@@ -1,0 +1,10 @@
+/* Render-blocking, before the application styles or scripts: no home first frame. */
+html{background:#faf7f0}html[data-theme=dark]{background:#181a17}
+html.booting body> :not(#launchCover){visibility:hidden!important}
+#launchCover{position:fixed;inset:0;z-index:2000;display:block;background:#faf7f0;pointer-events:none;contain:paint}
+html[data-theme=dark] #launchCover{background:#181a17}
+#launchCover>img{position:absolute;left:50%;top:50%;width:112px;height:112px;transform:translate(-50%,-50%);display:block}
+#launchCover .launch-wordmark{position:absolute;top:calc(50% + 80px);left:0;width:100%;text-align:center;font-family:sans-serif}
+#launchCover h1{font-size:27px;font-weight:600;letter-spacing:2px;margin:0 0 12px;color:#33372f}
+#launchCover p{font-size:11px;letter-spacing:3px;margin:0;color:#74796e}
+html[data-theme=dark] #launchCover h1{color:#e7e8de}html[data-theme=dark] #launchCover p{color:#a3a89b}

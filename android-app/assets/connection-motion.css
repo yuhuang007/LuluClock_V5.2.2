@@ -1,0 +1,24 @@
+/* The approved three-second scene, composed over the real App route. */
+.connection-motion{--paper:var(--l-bg);--line:#55684c;--orange:var(--l-accent);position:fixed;inset:var(--connection-top,76px) 0 0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 24px 72px;overflow:hidden;background:var(--l-bg);color:var(--l-text);isolation:isolate;contain:paint}
+.connection-motion[hidden]{display:none!important}
+:root[data-theme=dark] .connection-motion{--line:#cbd9b8}
+.connection-motion::before{content:"";position:absolute;inset:15% 10% 20%;pointer-events:none;background:radial-gradient(ellipse,#c8b78020,transparent 65%);z-index:-1}
+.connection-motion .art{display:block;flex:none;width:min(90vw,380px);height:auto;max-height:54dvh;overflow:visible}
+.connection-motion #cm-ink{fill:none;stroke:var(--line);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;transform-origin:220px 210px}
+.connection-motion #cm-ink .accent{stroke:var(--orange)}
+.connection-motion #cm-ink .fine{stroke-width:1.2;opacity:.65}
+.connection-motion .tool-body{fill:var(--paper);stroke:var(--line);stroke-width:1.5}
+.connection-motion .tool-accent{fill:var(--orange)}
+.connection-motion #cm-pen,.connection-motion #cm-eraser,.connection-motion #cm-crumbs{transform-origin:0 0;transform-box:view-box}
+.connection-motion .connection-copy{text-align:center;margin:8px 0 0}
+.connection-motion h2{font-size:21px;line-height:1.5;font-weight:500;margin:0 0 10px}
+.connection-motion p{font-size:13px;line-height:1.6;color:var(--l-muted);margin:0}
+.connection-motion .connection-skip{position:absolute;bottom:max(22px,env(safe-area-inset-bottom));right:24px;min-height:44px;padding:10px 18px;border-radius:18px;border:1px solid var(--l-border);background:var(--l-surface);color:var(--l-muted);font-size:12px}
+.connection-motion .connection-preview-label{position:absolute;top:16px;left:24px;font-size:11px;color:var(--l-muted)}
+.connection-motion-setting{margin-top:16px;padding:20px;border:1px solid var(--l-border);border-radius:22px;background:var(--l-surface)}
+.connection-motion-setting h3{margin:0 0 8px;font-size:15px;font-weight:600}
+.connection-motion-setting p{margin:0 0 15px;font-size:12px;line-height:1.7;color:var(--l-muted)}
+.connection-motion-setting .connection-preview-actions{display:flex;gap:10px}
+.connection-motion-setting button{flex:1;min-height:44px;border-radius:14px;background:var(--l-soft);color:var(--l-text);border:1px solid var(--l-border);font-size:13px}
+@media(min-width:760px){.connection-motion .art{width:420px;max-height:58dvh}.connection-motion{padding-bottom:54px}.connection-motion h2{font-size:23px}}
+@media(max-height:500px){.connection-motion{padding:8px 24px 16px;flex-direction:row;gap:24px}.connection-motion .art{width:240px;max-height:65dvh}.connection-motion h2{font-size:18px}.connection-motion .connection-copy{margin:0}.connection-motion .connection-skip{bottom:10px}}

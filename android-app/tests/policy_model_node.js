@@ -1,0 +1,20 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict'),path=require('path');const ctx={};ctx.window=ctx;vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'../assets/daily-model.js'),'utf8'),ctx);const p=ctx.DailyPolicyUI;
+const base={every:'5',from:'480',to:'1200',night:'1',nfrom:'1320',nto:'480',dim:'10',ambient:'1',darklow:'0',active:'1',next:'-1'};
+const pack=o=>Object.entries(o).map(([k,v])=>`${k}=${v}`).join(','),parse=s=>Object.fromEntries(s.split(',').map(x=>x.split('=')));
+(async()=>{
+ const calls=[];let config={...base},display={animation:'1',sleep:'30',brightness:'80'},fail=false;
+ const store=new p.Store(async(name,args)=>{calls.push([name,args]);if(fail&&name.endsWith('SET'))throw Error('save failed');if(name==='DAILYSET')p.keys.DAILY.forEach((k,i)=>config[k]=args.split(',')[i]);if(name==='DISPLAYSET')p.keys.DISPLAY.forEach((k,i)=>display[k]=args.split(',')[i]);return pack(name.startsWith('DAILY')?config:display);},parse);
+ await store.read('DAILY');config.every='17';config.dim='25';await store.save('DAILY',{night:0});assert.deepEqual(calls.slice(-3).map(x=>x[0]),['DAILY','DAILYSET','DAILY']);assert.equal(config.every,'17');assert.equal(config.dim,'25');assert.equal(config.night,'0');assert.equal(config.darklow,'0');
+ await store.save('DISPLAY',{sleep:0});assert.equal(display.animation,'1');assert.equal(display.brightness,'80');assert.equal(display.sleep,'0');
+ for(const change of [{nfrom:480,nto:480},{every:0},{every:61},{dim:4},{darklow:2},{from:1440}])assert.throws(()=>p.validate('DAILY',{...base,...change}));
+ for(const sleep of [0,15,3600])p.validate('DISPLAY',{animation:1,sleep,brightness:5});for(const sleep of [-1,1,14,3601])assert.throws(()=>p.validate('DISPLAY',{animation:1,sleep,brightness:100}));
+ assert.equal(p.minute('22:00'),1320);assert.equal(p.minute('08:00'),480);assert.throws(()=>p.minute('24:00'));assert(p.inside(1380,1320,480));assert(p.inside(60,1320,480));assert(!p.inside(480,1320,480));assert(p.inside(800,0,0));
+ assert(!p.next(base,{auto:'1',clock:'1'}).includes('-1'));assert.match(p.next({...base,next:'30'},{auto:'1',clock:'1',busy:'1'}),/待硬件确认/);
+ assert.match(p.light({raw:'0',stable:'0',darklow:'0',verified:'0'}),/为亮/);assert.match(p.light({raw:'1',stable:'1',darklow:'0',verified:'1'}),/为暗/);assert.match(p.light({raw:'0',stable:'0',darklow:'1',verified:'0'}),/为暗/);
+ assert.equal(p.task({stage:'drawing',needhome:'1'}),'需要先归位');assert.equal(p.task({stage:'homing'}),'归位中');
+ fail=true;await assert.rejects(store.save('DAILY',{every:8}),/save failed/);assert.equal(store.busy,false);assert.equal(config.every,'17');
+ let resolve;const delayed=new p.Store(()=>new Promise(r=>resolve=r),parse);const read=delayed.read('DAILY');delayed.reset();resolve(pack(base));await assert.rejects(read,/连接已变化/);assert.deepEqual(Object.keys(delayed.data),[]);
+ let sent=0;const changed=new p.Store(async n=>{if(n==='DAILYSET'){sent++;changed.reset();}return pack(base);},parse);await assert.rejects(changed.save('DAILY',{night:0}),/连接已变化/);assert.equal(sent,1);
+ const invalid=new p.Store(async()=>pack({night:'1'}),parse);await assert.rejects(invalid.save('DAILY',{night:0}),/配置不完整/);
+ const result={status:'passed',coverage:['read-modify-write-read keeps other changed hardware settings','display preserves other fields','minute ranges and midnight windows','sleep and brightness validation','negative next and busy not fake countdown','polarity and verification','homing and stage labels','failed save not success','disconnect invalidates old read and save','incomplete read refuses overwrite'],physical_device_tested:false};console.log(JSON.stringify(result));
+})().catch(e=>{console.error(e);process.exitCode=1;});

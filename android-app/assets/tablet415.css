@@ -1,0 +1,83 @@
+.home-time-area,.home-action-area{display:contents}
+#tabletSections{display:none}
+@media(min-width:760px){
+ .app414.app415{--rail-width:200px;--rail-gap:24px}
+ .app414.app415 header{height:100px;max-width:none;margin:0;padding:24px 32px;gap:24px}
+ .app414.app415 .brand strong{font-size:21px;letter-spacing:1px}
+ .app414.app415 .brand small{font-size:10px;letter-spacing:1px}
+ .app414.app415 .brand-mark,.app414.app415 .brand-mark img{width:42px;height:42px}
+ .app414.app415 .header-tools{gap:10px}
+ .app414.app415 .theme-toggle{width:44px}
+ .app414.app415 .link-chip{padding:10px 15px;font-size:12px}
+ .app414.app415 .stop-button{width:auto;min-width:70px;height:44px;min-height:44px;flex-direction:row;gap:6px;padding:8px 12px}
+ .app414.app415 .stop-button svg{width:17px;height:17px;flex-shrink:0}
+ .app414.app415 .stop-button span{font-size:11px;white-space:nowrap}
+ .app414.app415 main{margin:0 0 0 calc(var(--rail-width) + var(--rail-gap));width:calc(100% - var(--rail-width) - var(--rail-gap));max-width:none;height:calc(100vh - 100px);height:calc(100dvh - 100px);padding:14px 28px 36px;scroll-padding-block:20px}
+ .app414.app415 main>.panel{max-width:1120px;margin:0 auto}
+ .app414.app415 main>.route-view{max-width:840px;padding:0 4px}
+ .app414.app415 .connect-card{max-width:650px;margin:26px auto;padding:40px}
+ .app414.app415 nav{top:113px;bottom:auto;left:20px;right:auto;transform:none;width:var(--rail-width);max-width:none;height:268px;border-radius:26px;display:grid;grid-template-columns:1fr;grid-template-rows:repeat(4,56px);gap:8px;padding:10px}
+ .app414.app415 nav::before{left:10px;top:10px;width:calc(100% - 20px);height:56px;transform:translateY(calc(var(--nav-index,0)*64px));border-radius:17px}
+ .app414.app415 nav button{min-height:56px;flex-direction:row;justify-content:flex-start;gap:14px;padding:12px 19px;border-radius:17px;font-size:14px}
+ .app414.app415 nav button span{font-size:14px;letter-spacing:1px}
+ .app414.app415 nav button svg{width:23px;height:23px}
+ .app414.app415 nav button.active svg{transform:none}
+ #tabletSections{display:block;position:fixed;left:20px;top:400px;bottom:22px;width:var(--rail-width);padding:0 11px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+ #tabletSections p{margin:5px 10px 12px;font-size:11px;letter-spacing:1px;color:var(--l-faint)}
+ #tabletSections button{display:block;width:100%;text-align:left;padding:12px 14px;min-height:44px;border-radius:13px;background:transparent;color:var(--l-muted);font-size:12px;margin:2px 0}
+ #tabletSections button[aria-current=page]{color:var(--l-accent);background:var(--l-accent-soft);font-weight:600}
+ .app414.app415 .device-card{margin:0 0 24px;min-height:82px}
+ .app414.app415 .hero{min-height:232px;padding:28px}
+ .app414.app415 .hero .clock{font-size:86px;margin:26px 0}
+ .app414.app415 .hero-orbit{width:120px;height:120px;top:60px;right:10px}
+ .app414.app415 .menu-row{min-height:70px}
+ .app414.app415 #toast{left:calc(50% + 110px);bottom:30px;max-width:calc(100% - 300px)}
+ .app414.app415 .route-heading{margin:8px 0 28px}
+ .app414.app415 .page-heading,.app414.app415 .page-title{margin:10px 0 28px}
+ .app414.app415 .route-heading h1{font-size:25px}
+ .app414.app415 .appearance-intro{margin-bottom:35px}
+ .app414.app415 .theme-preview{height:150px}
+ .app414.app415 .theme-choices{gap:16px}
+ .app414.app415 #panel-settings .menu-row{min-height:67px;padding:14px 17px}
+ .app414.app415 #panel-settings .menu-row small{font-size:11px;margin-top:5px}
+ .app414.app415 .feature-card{padding:25px}
+ .app414.app415 .cal-fields{gap:16px}
+ .app414.app415 #panel-about .about-card{max-width:640px;margin:0 auto 22px}
+ .app414.app415 #panel-about details{max-width:640px;margin:auto}
+}
+@media(min-width:1100px){
+ .app414.app415{--rail-width:220px;--rail-gap:32px}
+ .app414.app415 header{padding-left:36px;padding-right:42px}
+ .app414.app415 main{padding:20px 40px 40px}
+ .app414.app415 #panel-control.active:not([hidden]){display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0 24px;align-items:start}
+ .app414.app415 #panel-control>.device-card,.app414.app415 #panel-control>.home-connections{grid-column:1/-1}
+ .home-time-area,.home-action-area{display:block;min-width:0}
+ .app414.app415 .home-time-area .hero{min-height:337px;padding:30px 27px;margin-bottom:20px}
+ .app414.app415 .home-time-area .clock{font-size:clamp(76px,7.3vw,112px);margin:58px 0 40px}
+ .app414.app415 .home-time-area .hero-orbit{top:92px;width:100px;height:100px;right:6px;opacity:.5}
+ .app414.app415 .home-action-area .section-title{margin:5px 0 18px}
+ .app414.app415 .home-action-area .action-grid{margin:0 0 19px;gap:12px}
+ .app414.app415 .home-action-area .action{min-height:182px;padding:25px 18px}
+ .app414.app415 .home-action-area .action b{margin:65px 0 12px}
+ .app414.app415 .home-action-area .action-icon{top:25px;left:18px;right:auto}
+ .app414.app415 .home-action-area .compact-setting{margin-bottom:20px;min-height:91px;display:grid;align-items:center}
+ .app414.app415 #panel-draw.active{display:grid;grid-template-columns:minmax(0,1fr) 224px;gap:0 22px}
+ .app414.app415 #panel-draw>.page-heading,.app414.app415 #panel-draw>.creation-tools{grid-column:1/-1}
+ .app414.app415 #panel-draw>.canvas-card{grid-column:1;grid-row:3/span 4;align-self:start;padding:20px;min-width:0}
+ .app414.app415 #panel-draw>.canvas-edit{grid-column:2;grid-row:3}
+ .app414.app415 #uploadProgress{grid-column:2;grid-row:4}
+ .app414.app415 #sendDrawing{grid-column:2;grid-row:5;align-self:start;font-size:12px;line-height:1.6}
+ .app414.app415 #panel-draw>.note{grid-column:2;grid-row:6}
+ .app414.app415 #panel-timer.active{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 26px;align-items:start}
+ .app414.app415 #panel-timer>.page-heading{grid-column:1/-1}
+ .app414.app415 #panel-timer>.timer-face{grid-column:1;grid-row:2/span 2;min-height:350px;display:flex;flex-direction:column;justify-content:center}
+ .app414.app415 #timerClock{font-size:clamp(76px,8vw,110px)}
+ .app414.app415 #panel-timer>.segmented{grid-column:2;grid-row:2}
+ .app414.app415 #panel-timer>.segment-pane{grid-column:2;grid-row:3;min-width:0}
+ .app414.app415 #panel-settings.active{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;align-items:start}
+ .app414.app415 #panel-settings>.page-title{grid-column:1/-1}
+ .app414.app415 #panel-settings>.menu-group:nth-child(2){grid-column:1;grid-row:2}
+ .app414.app415 #panel-settings>.menu-group:nth-child(3){grid-column:2;grid-row:2/span 2}
+ .app414.app415 #panel-settings>.menu-group:nth-child(4){grid-column:1;grid-row:3}
+}
+@media(min-width:1600px){.app414.app415 main{padding-left:60px;padding-right:60px}}

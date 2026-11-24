@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18342f">
+  <meta name="description" content="从备料、3D 打印外壳和机械臂，到第一次用紫外灯头画出 10 mm 方框。噜噜绘时钟 V2 复刻教程。">
+  <title>噜噜绘时钟 V2 · 复刻教程</title>
+  <link rel="stylesheet" href="guide.css">
+  <script src="guide.js" defer></script>
+</head>
+<body id="top">
+  <a href="#steps" class="skip">跳到复刻步骤</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M12 7v5l3 2"></path>
+        </svg>
+        <span>LuluClock V2</span>
+      </a>
+      <div class="top-links">
+        <a class="top-link source" href="https://github.com/yuhuang007/LuluClock_V2">源码</a>
+        <a class="top-link" href="https://github.com/yuhuang007/LuluClock_V2/releases/tag/v5.2.2">
+          下载
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="title">
+    <img class="hero-image" src="assets/cover.jpg" width="1280" height="720" alt="原型正面的光绘板、双舵机连杆、侧屏和顶部按键">
+    <div class="wrap hero-content">
+      <p class="kicker">复刻工作台 <span> / </span> 5.2.2</p>
+      <h1 id="title">噜噜绘时钟 V2</h1>
+      <p class="hero-lede">打印外壳和机械臂，画出第一个光绘方框。</p>
+      <a class="primary" href="#steps">
+        开始复刻
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 12h15m-6-6 6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+    <span class="hero-credit">原型实拍</span>
+  </section>
+
+  <div class="wrap workbench">
+    <aside class="rail" aria-label="路线与进度">
+      <div class="progress" id="progress-panel" hidden>
+        <div class="progress-line">
+          <strong id="progress-label">复刻进度</strong>
+          <span id="progress-count" aria-live="polite">0 / 6</span>
+        </div>
+        <progress id="progress-bar" max="6" value="0" aria-labelledby="progress-label"></progress>
+        <p class="storage-note" id="storage-note" hidden>当前无法保存进度，刷新会重置。</p>
+        <button type="button" class="text-button" id="reset-progress" disabled>重置进度</button>
+      </div>
+      <nav aria-label="章节目录">
+        <ol class="route">
+          <li><a href="#parts"><span>01</span> 备料</a></li>
+          <li><a href="#mechanics"><span>02</span> 打印与试装</a></li>
+          <li><a href="#wiring"><span>03</span> 接线与上电</a></li>
+          <li><a href="#firmware"><span>04</span> 编译与烧录</a></li>
+          <li><a href="#calibrate"><span>05</span> 连接与校准</a></li>
+          <li><a href="#draw"><span>06</span> 第一次绘制</a></li>
+          <li><a href="#troubleshoot"><span>＋</span> 故障速查</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main id="steps">
+      <div class="intro">
+        <div class="facts" aria-label="此教程适用配置">
+          <span>ESP32-S3 N16R8</span>
+          <span>2 × SG90</span>
+          <span>Android 8+</span>
+        </div>
+        <p>按 R16 装配修订 A1 打印外壳与机械臂，再接线、烧录并校准。成品照来自原型，下载包中的配合和行程要用自己买到的零件试装验收。</p>
+      </div>
+
+      <section class="step" id="parts">
+        <header><span class="step-index">01</span><h2>备料</h2></header>
+        <p class="step-intro">按清单确认舵机轴、屏幕外形和紧固件。建议先用稳压电源调通动作，再加灯带或电池。</p>
+        <dl class="parts-matrix">
+          <div><dt>首轮必备</dt><dd>ESP32-S3 N16R8、SG90 × 2（带舵盘）、常开按键 × 3、打印外壳和连杆、匹配的紧固件与垫片、可限流的 5 V 稳压电源。</dd></div>
+          <div><dt>用光实绘</dt><dd>约 80 × 40 mm 蓄光板、与材料匹配的紫光或近紫外 LED、接受 3.3 V PWM 的限流驱动。先确认电流规格与兼容性。</dd></div>
+          <div><dt>调试及选装</dt><dd>万用表、实尺或卡尺；外接 UART0 时准备 3.3 V 逻辑 USB-TTL。侧屏可选 0.96 英寸 SSD1306（128 × 64，I²C）；温湿度、光敏、蜂鸣器和灯带按需加。</dd></div>
+        </dl>
+        <p class="file-links"><a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/bom.csv" data-local="../hardware/bom.csv">物料清单 CSV</a></p>
+        <label class="check"><input type="checkbox" id="check-parts" data-step="parts"> <span>已核对板型、供电、舵机和机构用料</span></label>
+      </section>
+
+      <section class="step" id="mechanics">
+        <header><span class="step-index">02</span><h2>打印外壳与机械臂</h2></header>
+        <p class="step-intro">整机打印包含 A1 主壳、R16 前面板、三个键帽、USB 挡块及机械臂。用 STL 切片，用 Blender 源文件查看或改尺寸。</p>
+        <ol>
+          <li>按文件清单导入 STL，单位用<strong>毫米、比例 100%</strong>。保留左右件的区分，尤其不要镜像三孔杆。可从 0.4 mm 喷嘴、0.16–0.20 mm 层高试起，先看细槽、孔位和桥接的切片预览。</li>
+          <li>主壳通常后背贴平台、开口向上。前面板与连杆逐件检查支撑、贴底和孔位。先做小件试装，去除毛边后核对键帽回弹、紧固件、Type-C 与 OLED 开窗。</li>
+          <li>断电干装舵机、板面和内侧模块，双轴中心距核对为 <strong>25.00 mm</strong>。主动臂用舵机匹配的舵盘，等校准到 A 位再装，不要在此时固定角度。关节处用垫片错层，确保灯头与线束不刮板。</li>
+          <li>前面板先不锁紧。留出端口、量测和调整空间，完成接线、灭灯空走与实绘后再合壳。合壳前检查线束不会被夹到，按键可以回弹。</li>
+        </ol>
+        <p class="file-links">
+          <a href="https://github.com/yuhuang007/LuluClock_V2/releases/download/v5.2.2/LuluClock-5.2.2-STL.zip">下载整套 STL</a>
+          <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/enclosure/README.md" data-local="../hardware/enclosure/README.md">打印清单、装配与 Blender 源文件</a>
+        </p>
+        <details class="alternate">
+          <summary>还没打印外壳？先用开放台架排查机构</summary>
+          <p>按 100% 打印 A4 模板，量 50 mm 标尺确认比例，核对 25 mm 轴心距和杆件孔中心距。开放台架与整机使用相同的四件机械臂，适合先排查运动、灯头高度和线束。</p>
+          <div class="file-links">
+            <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/bench-jig.svg" data-local="../hardware/bench-jig.svg">1:1 台架模板</a>
+            <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/bench/README.md" data-local="../hardware/bench/README.md">台架连杆</a>
+            <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/README.md" data-local="../hardware/README.md">几何与装臂细节</a>
+          </div>
+        </details>
+        <label class="check"><input type="checkbox" id="check-mechanics" data-step="mechanics"> <span>已试装打印件，并核对轴距、关节方向与线束空间</span></label>
+      </section>
+
+      <section class="step" id="wiring">
+        <header><span class="step-index">03</span><h2>接线与首次上电</h2></header>
+        <p class="step-intro">按开发板丝印上的 <strong>GPIO 编号</strong>接线。面对绘制面，左舵机接 GPIO5，右舵机接 GPIO4。</p>
+        <figure>
+          <a href="assets/wiring.svg"><img src="assets/wiring.svg" alt="5.2.2 外设信号、电源分支及 UART0 接线总览" loading="lazy"></a>
+          <figcaption>点击查看原尺寸接线图。</figcaption>
+        </figure>
+        <dl class="pin-map">
+          <div><dt>左 / 右舵机</dt><dd>GPIO5 / GPIO4</dd></div>
+          <div><dt>OLED SDA / SCL</dt><dd>GPIO9 / GPIO10</dd></div>
+          <div><dt>左 / 中 / 右键</dt><dd>GPIO15 / GPIO16 / GPIO17</dd></div>
+          <div><dt>绘制灯 / 灯带</dt><dd>GPIO6 / GPIO11，仅控制</dd></div>
+          <div><dt>蜂鸣器 / 光敏 DO / DHT11</dt><dd>GPIO7 / GPIO8 / GPIO18</dd></div>
+        </dl>
+        <div class="callout">
+          <p><strong>先只给主控上电。</strong>不接舵机、灯头、灯带和电池，断电核对短路与极性。舵机从独立的 5 V 负载支路供电，各支路共地，避免多个电源同时向同一电源轨供电。GPIO6 / GPIO11 只接驱动输入，裸 LED 与灯带不要从 GPIO 取电。</p>
+        </div>
+        <p class="file-links"><a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/hardware/wiring.md" data-local="../hardware/wiring.md">完整接线与上电检查</a></p>
+        <label class="check"><input type="checkbox" id="check-wiring" data-step="wiring"> <span>已断电核线，首轮只接主控</span></label>
+      </section>
+
+      <section class="step" id="firmware">
+        <header><span class="step-index">04</span><h2>编译与首次烧录</h2></header>
+        <p class="step-intro">空板建议用 Arduino IDE 串口上传草图，工具会写入引导、分区与应用。已经运行兼容固件的设备才可用 App 局域网 OTA。</p>
+        <ol>
+          <li>安装 <strong>Arduino ESP32 3.3.12</strong> 和 <strong>U8g2 2.36.19</strong>。在仓库打开 <code>firmware/JianClock/JianClock.ino</code>，保留同目录源码。</li>
+          <li>选择 <strong>ESP32S3 Dev Module</strong>，设定 QIO / 16 MB、OPI PSRAM、<strong>16M Flash (3MB APP/9.9MB FATFS)</strong> 分区和 USB CDC On Boot 为 Disabled。Upload Mode 用 UART0 / Hardware CDC，115200。</li>
+          <li>先「验证」编译，再选对串口执行「上传」。使用外接 USB-TTL 时须为 3.3 V 逻辑、TX/RX 交叉、共地且 VCC 留空；板载与外接串口桥不要同时驱动 UART0。无法下载时按硬件文档核对 BOOT（GPIO0）和 EN。</li>
+        </ol>
+        <p><code>JianClock.ino.bin</code> 是可用于兼容设备 OTA 的应用镜像。公开版 APK 不内置固件；需要 OTA 时，在应用里手动选择本地编译的应用镜像。</p>
+        <p class="file-links"><a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/firmware/README.md" data-local="../firmware/README.md">Arduino IDE、CLI 与镜像说明</a></p>
+        <label class="check"><input type="checkbox" id="check-firmware" data-step="firmware"> <span>编译和串口上传完成，已确认主控能启动</span></label>
+      </section>
+
+      <section class="step" id="calibrate">
+        <header><span class="step-index">05</span><h2>连接、装臂与空走</h2></header>
+        <p class="step-intro">打开 Android App，按系统提示允许蓝牙扫描与连接。在设备页连接时钟、确认固件号并同步时间，暂时关闭自动绘时和定时计划。</p>
+        <ol>
+          <li>每次断电后再逐个加入 OLED、按键和传感器。验证通过后先接一只空载舵机，再接另一只；灯头仍保持断电。留出行程并确保能迅速断电。</li>
+          <li>在 App 机械校准页进入装臂模式，选择 A。面对绘制面，预定装臂位置<strong>左主动臂水平向左、右主动臂竖直向上</strong>。对齐齿位，断电后装舵盘。</li>
+          <li>清除行程阻碍后尝试 B 位（左主动臂向上、右主动臂向右），按硬件指南少量调整并保存。用灭灯空走测试方框和十字，确认左右方向、归位、错层与线束都正常。出现卡阻立即断电检查。</li>
+        </ol>
+        <figure class="landscape">
+          <img src="assets/app.jpg" alt="噜噜绘时钟的 5.2.2 应用界面预览，包含手机与平板布局" loading="lazy">
+          <figcaption>应用界面预览，读数为演示数据。</figcaption>
+        </figure>
+        <p class="file-links">
+          <a href="https://github.com/yuhuang007/LuluClock_V2/releases/tag/v5.2.2">下载 Android APK</a>
+          <a href="https://github.com/yuhuang007/LuluClock_V2/blob/main/android-app/README.md" data-local="../android-app/README.md">App 构建与连接说明</a>
+        </p>
+        <label class="check"><input type="checkbox" id="check-calibrate" data-step="calibrate"> <span>已完成 A/B 装臂和空走，灯头、板面与线束无干涉</span></label>
+      </section>
+
+      <section class="step" id="draw">
+        <header><span class="step-index">06</span><h2>画出第一个 10 mm 方框</h2></header>
+        <p class="step-intro">先用已确认的限流驱动和光绘材料走一遍短线，避开灯头照射眼睛。观察灯头与板面的间隙是否稳定，再做尺寸验证。</p>
+        <ol>
+          <li>断电接入灯头驱动；用独立测量确认额定电流后，才退出灭灯空走。</li>
+          <li>在 App 依次进入「创作 → 测试图形」，选择 <strong>校验方框 10 × 10 mm</strong>。在画布确认尺寸后发送。</li>
+          <li>在蓄光板上量横、纵线段，检查方框比例与重复性，并记录实际结果。通过后再试手绘、文字和自动绘时。</li>
+        </ol>
+        <figure class="landscape">
+          <img src="assets/drawing-time.gif" alt="原型实拍：双舵机移动灯头，在蓄光板上画出发光字迹" loading="lazy">
+          <figcaption>光绘动作来自原型实拍。新打印和装配的机器需要单独校准和实绘验收。</figcaption>
+        </figure>
+        <label class="check"><input type="checkbox" id="check-draw" data-step="draw"> <span>已绘制校验方框并记录实测尺寸</span></label>
+      </section>
+
+      <section class="troubleshoot" id="troubleshoot" aria-labelledby="trouble-title">
+        <header><span class="step-index">＋</span><h2 id="trouble-title">故障速查</h2></header>
+        <details>
+          <summary>Arduino IDE 无法连接，或编译报空间不足</summary>
+          <p>先确认串口没有被占用、板型为 ESP32-S3，供电与 BOOT / EN 正常。编译空间不足时检查 16 MB 分区项，不能仅设置 Flash Size。首次烧录请上传草图；不要把 OTA 应用文件当成整包。</p>
+        </details>
+        <details>
+          <summary>舵机上电抖动、掉线或主控复位</summary>
+          <p>断开舵机与灯，恢复到主控单独启动，再逐路加负载。检查 5 V 支路、公共地与瞬态电流能力；确认连杆没有夹死、舵盘朝向与通道正确。故障未定位前保持灯头断电。</p>
+        </details>
+        <details>
+          <summary>OLED 黑屏或倒置</summary>
+          <p>先核对供电、SDA（GPIO9）、SCL（GPIO10）和模块接口型号。正常显示但倒置可调整 <code>OLED_ROTATE_180</code> 后重编；黑屏先排查接线，不从方向宏着手。</p>
+        </details>
+        <details>
+          <summary>方框变形、没留光或某一路方向反了</summary>
+          <p>先关灯检查轴距、孔中心距与三孔杆方向，确认正面左 GPIO5、右 GPIO4，随后校准零点和比例。空走正确但不留光时，再检查蓄光材料、限流驱动与灯头间距。</p>
+        </details>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>LuluClock V2 <span class="muted">/</span> 复刻教程 · 5.2.2</span>
+      <a href="#top">回到顶部 ↑</a>
+    </div>
+  </footer>
+</body>
+</html>

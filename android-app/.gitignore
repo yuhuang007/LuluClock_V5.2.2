@@ -1,0 +1,9 @@
+/build/
+/release/
+/.signing/
+/__pycache__/
+/assets/firmware/
+*.apk
+*.jks
+*.keystore
+*.p12

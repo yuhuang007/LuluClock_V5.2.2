@@ -1,0 +1,40 @@
+/* Motion changes only opacity / transform. Theme colors commit once under a snapshot. */
+.app414{--motion-ease:cubic-bezier(.2,.8,.2,1)}
+.app414.app415 *,.app414.app415 *::before,.app414.app415 *::after{transition-property:opacity,transform!important}
+.app414 button{transition-duration:160ms}
+.app414 .panel,.app414 .connect-card{animation:none!important}
+.app414 .hero-orbit svg{animation:none}
+.app414 .orbit-halo{filter:none}
+.app414 .hero .mode-pill{backdrop-filter:none}
+.app414 .brand strong{font-size:17px;letter-spacing:.2px;white-space:nowrap}
+.app414 .brand small{font-size:9px;letter-spacing:.2px}
+.app414 header{padding-left:18px;padding-right:18px;gap:8px}
+.app414 .header-tools{gap:1px}.app414 .theme-toggle{width:36px;padding:7px}
+.app414 .link-chip{padding:9px 8px}.app414 .stop-button{padding:8px 9px}
+/* A small glass shelf is separate from the scrolling page. Its high-opacity
+   material and rim give depth without a full-screen live blur during scroll. */
+.app414 nav{height:74px;background:linear-gradient(155deg,#ffffffd9,#f9f4e9f0 55%,#f0e8daf5);border:1px solid #ffffffb0;box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #c9bea559,0 8px 25px #31362916;backdrop-filter:none;-webkit-backdrop-filter:none;overflow:hidden;contain:layout paint}
+.app414 nav::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;background:linear-gradient(120deg,#fff7,transparent 28%,transparent 72%,#fff3);box-shadow:inset 1px 0 0 #fff7,inset -1px 0 0 #fff4}
+.app414 nav::before{background:linear-gradient(145deg,#ffffffdc,#f0dec7c9);border:1px solid #fff9;box-shadow:inset 0 1px 0 #fff,0 2px 7px #704f2b12;transition-duration:280ms}
+:root[data-theme=dark] .app414 nav{background:linear-gradient(145deg,#444c42eb,#252e28f5);border-color:#dce9d32b;box-shadow:inset 0 1px 0 #ffffff28,inset 0 -1px 0 #0003,0 8px 28px #0004}
+:root[data-theme=dark] .app414 nav::before{background:linear-gradient(145deg,#7b70515c,#b28a4b26);border-color:#f8e8ba30;box-shadow:inset 0 1px 0 #ffffff2a,0 2px 8px #0002}
+:root[data-theme=dark] .app414 nav::after{background:linear-gradient(120deg,#ffffff12,transparent 30%,transparent 74%,#ffffff08);box-shadow:inset 1px 0 0 #ffffff14}
+.app414 main{padding-bottom:116px;scroll-behavior:auto}
+/* Real backdrop blur stays in a small stationary dialog header. */
+.app414 dialog{background:var(--l-surface)}
+.app414 dialog .dialog-head{background:linear-gradient(140deg,#ffffff25,transparent);border-bottom:1px solid var(--l-border);padding-bottom:14px;margin-bottom:10px}
+@supports(backdrop-filter:blur(6px)){.app414 dialog .dialog-head{backdrop-filter:blur(6px) saturate(1.15)}}
+.app414 dialog::backdrop{backdrop-filter:none;background:#101b1470}
+.app414 dialog[open]{animation:dialog-in415 240ms var(--motion-ease)}
+.app414 .segmented::before{transition-duration:240ms}
+.app414 .switch:before{transition-duration:220ms}
+html.theme-snapshot *,html.theme-snapshot *::before,html.theme-snapshot *::after{transition:none!important;animation:none!important}
+::view-transition{pointer-events:none}
+::view-transition-group(root){animation-duration:260ms;animation-timing-function:ease-out}
+::view-transition-old(root){animation:theme-out415 260ms ease-out both;mix-blend-mode:normal}
+::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-old(root){z-index:2}::view-transition-new(root){z-index:1}
+@keyframes theme-out415{to{opacity:0}}
+@keyframes dialog-in415{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:360px){.app414 .brand strong{font-size:15px}.app414 .brand{gap:6px}.app414 header{padding-left:13px;padding-right:13px;gap:4px}.app414 .header-tools{gap:0}.app414 .theme-toggle{width:30px}.app414 .link-chip{font-size:9px;padding:8px 6px}.app414 .stop-button{font-size:10px;padding:8px 6px}}
+@media(prefers-reduced-motion:reduce){.app414 *,.app414 *::before,.app414 *::after{animation:none!important;transition:none!important}::view-transition-group(root),::view-transition-old(root){animation-duration:0s}}
