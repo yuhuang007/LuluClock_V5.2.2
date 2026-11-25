@@ -7,7 +7,7 @@
 两只舵机带动灯头，在蓄光板上写下时间、汉字和手绘图案。<br>
 这里有 R16 A1 整机 12 件打印包、固件和 Android App。**复刻资料 R1** 对应固件和 App **5.2.2**。
 
-<a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4"><img src="docs/assets/banner.jpg" alt="原型实拍：白色噜噜绘时钟、顶部橘子键帽、侧面 OLED 与正面双舵机机械臂。点击下载作品视频。" width="100%"></a>
+<a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4"><img src="docs/assets/banner.jpg" alt="成品实拍：白色噜噜绘时钟、顶部橘子键帽、侧面 OLED 与正面双舵机机械臂。点击下载作品视频。" width="100%"></a>
 
 <a href="https://yuhuang007.github.io/LuluClock_V5.2.2/"><img src="docs/assets/action-guide.png" alt="打开网页版复刻教程" width="30%"></a> <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/repro-5.2.2-r1/LuluClock-5.2.2-R16-A1-R1-STL.zip"><img src="docs/assets/action-stl.png" alt="下载整机 12 件 STL" width="30%"></a> <a href="https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-5.2.2.apk"><img src="docs/assets/action-apk.png" alt="下载 Android APK" width="30%"></a>
 
@@ -24,12 +24,12 @@
 ## 01 · 实际画出来是什么样
 
 <p align="center">
-  <img src="docs/assets/drawing-time.gif" alt="原型机实时移动灯头，在蓄光板上画出时间" width="560">
+  <img src="docs/assets/drawing-time.gif" alt="装好的时钟移动灯头，在蓄光板上画出时间" width="560">
 </p>
 
 画线时灯头亮起，换笔时灭灯移动。完成后，线条会在板面短暂停留。它能按计划绘时，也能从 App 接收「你好世界」或随手画的图案。
 
-**[下载 3 分 46 秒作品视频](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4)**，内含整机实拍、App 与实机联动、OLED 操作及带标注的原理演示。
+**已完成一台整机装配并完成实机演示。** [3 分 46 秒的成品视频](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4)拍到了灯头绘时、按 App 发来的笔画写字和画图、机顶实体按键切换侧面 OLED，以及平板启动倒计时后机身侧屏同步计时。
 
 | 创作 | 时间与交互 | 自定义 |
 | --- | --- | --- |
@@ -71,11 +71,11 @@ OLED 是 0.96 英寸 SSD1306，128 × 64。设备空闲时长按中键 5 秒进�
 | **[逐件 STL 与装配说明](hardware/enclosure/README.md)** | 打印方向、关键中心距、试装顺序和合壳前检查 |
 | **[A4 台架图](hardware/bench-jig.svg)** | 1:1 校核轴心距和孔位；没有打印机也可先用平板搭台架 |
 
-这套 12 件组合尚未实体试装。切片用 **毫米、100%**，先按[逐件说明](hardware/enclosure/README.md)查看 07 号低座主动臂和 10 号灯头连杆的层预览。试配屏背板和灯光盖后，再用舵盘、螺钉和间隙确定高、低座主动臂的左右位置。孔距和层差以实测为准，固件默认几何与台架图用于对照。
+复刻时用 **毫米、100%** 切片，按[逐件说明](hardware/enclosure/README.md)查看 07 号低座主动臂和 10 号灯头连杆的层预览。把背板、灯盖和舵盘放到自己的打印件上试配，再按实际孔距、层差和运动间隙确定两根主动臂的位置。
 
 ## 04 · 从备料到第一笔
 
-**完整步骤见 [网页版教程](https://yuhuang007.github.io/LuluClock_V5.2.2/)**，可以边做边勾选。需要离线资料时，下载[复刻资料 R1 固定工程 ZIP](https://github.com/yuhuang007/LuluClock_V5.2.2/archive/refs/tags/repro-5.2.2-r1.zip)，解压后打开 [`docs/index.html`](docs/index.html)。[R1 发布页](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/tag/repro-5.2.2-r1) 汇总整套下载和版本对应关系。
+**完整步骤见 [网页版教程](https://yuhuang007.github.io/LuluClock_V5.2.2/)**。离线阅读请下载[含当前教程的工程 ZIP](https://github.com/yuhuang007/LuluClock_V5.2.2/archive/refs/heads/main.zip)，解压后打开 [`docs/index.html`](docs/index.html)。[R1 发布页](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/tag/repro-5.2.2-r1) 保留当时的固定快照、12 件 STL 和校验值。
 
 | 步骤 | 看哪份资料 | 完成标志 |
 | --- | --- | --- |

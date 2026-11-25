@@ -63,6 +63,6 @@ node android-app/tests/policy_model_node.js
 node android-app/tests/v4115_ota_node.js
 ```
 
-这些测试检查画布等比尺寸、笔顺及发送坐标、日常策略和模拟 OTA 重连。真实 BLE、升级与绘制效果仍需实机验证。
+这些测试检查画布等比尺寸、笔顺及发送坐标、日常策略和模拟 OTA 重连。[成品实拍](https://github.com/yuhuang007/LuluClock_V5.2.2/releases/download/v5.2.2/LuluClock-Prototype-720p.mp4)另有平板连接时钟、发送绘图和同步倒计时的过程。要验证自己设备上的无线升级，请按上面的手动升级流程操作，重连后读回固件版本。
 
 汉字中线数据源为 [Make Me a Hanzi](https://github.com/skishore/makemeahanzi)；数据许可与修改说明随源码和 APK 一并提供，见 [assets/licenses](assets/licenses/)。
